@@ -13,15 +13,17 @@ body {
     background: #f2f2f2;
 }
 
-/* ===== LAYOUT ===== */
+/* ===== GRID GLOBAL ===== */
 .layout {
     display: grid;
-    grid-template-columns: 220px 1fr 280px;
+    grid-template-columns: 220px 1fr 300px;
+    grid-template-rows: 100px 1fr;
     min-height: 100vh;
 }
 
 /* ===== SIDEBAR GAUCHE ===== */
 .sidebar {
+    grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
     padding: 20px;
@@ -30,37 +32,34 @@ body {
     justify-content: space-between;
 }
 
-.sidebar h2 {
-    font-size: 36px;
+.logo {
     border: 2px solid white;
     display: inline-block;
-    padding: 8px 12px;
+    padding: 10px 15px;
+    font-size: 28px;
     margin-bottom: 30px;
 }
 
-.sidebar a {
+.menu {
+    margin-top: 40px;
+}
+
+.menu a {
     display: block;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
+    margin: 12px 0;
 }
 
-.sidebar-bottom {
-    font-size: 13px;
-    color: #ccc;
-}
-
-/* ===== CONTENU ===== */
-main {
-    display: flex;
-    flex-direction: column;
-}
-
-/* HEADER VERT */
+/* ===== HEADER ===== */
 .header {
+    grid-column: 2 / 4;
     background: #0b3d2e;
     color: white;
-    padding: 25px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
 }
 
 .header h1 {
@@ -73,15 +72,15 @@ main {
     color: #ddd;
 }
 
-/* CONTENU INTERNE */
-.content {
+/* ===== CONTENU ===== */
+main {
     padding: 30px;
 }
 
 /* HERO */
 .hero {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     gap: 20px;
     background: white;
     padding: 25px;
@@ -90,7 +89,7 @@ main {
 }
 
 .hero h2 {
-    font-size: 34px;
+    font-size: 36px;
     margin: 0;
 }
 
@@ -114,10 +113,6 @@ article {
     padding: 20px;
 }
 
-article h3 {
-    margin-top: 0;
-}
-
 article p {
     color: #555;
 }
@@ -125,7 +120,7 @@ article p {
 /* ===== SIDEBAR DROITE ===== */
 .right {
     padding: 20px;
-    margin-top: 60px;
+    margin-top: 120px;
 }
 
 .debat {
@@ -145,10 +140,6 @@ article p {
     padding: 20px;
 }
 
-.popular ul {
-    padding-left: 20px;
-}
-
 </style>
 
 </head>
@@ -157,63 +148,61 @@ article p {
 
 <div class="layout">
 
-    <!-- MENU GAUCHE -->
+    <!-- SIDEBAR -->
     <div class="sidebar">
         <div>
-            <h2>LP</h2>
-            <a href="#">Actualité</a>
-            <a href="#">Société & débats</a>
-            <a href="#">International</a>
-            <a href="#">Culture</a>
-            <a href="#">Analyses</a>
-            <a href="#">Vie locale</a>
-            <a href="#">Économie</a>
+            <div class="logo">LP</div>
+
+            <div class="menu">
+                <a href="#">Actualité</a>
+                <a href="#">Société & débats</a>
+                <a href="#">International</a>
+                <a href="#">Culture</a>
+                <a href="#">Analyses</a>
+                <a href="#">Vie locale</a>
+                <a href="#">Économie</a>
+            </div>
         </div>
 
-        <div class="sidebar-bottom">
-            <p>Journal indépendant</p>
-            <p>Créé en 2026</p>
+        <div style="font-size: 13px; color: #ccc;">
+            Journal indépendant<br>
+            Créé en 2026
         </div>
     </div>
 
-    <!-- CONTENU CENTRAL -->
+    <!-- HEADER -->
+    <div class="header">
+        <h1>La Perspective</h1>
+        <p>Regarder au-delà, comprendre le monde</p>
+    </div>
+
+    <!-- CONTENU -->
     <main>
 
-        <div class="header">
-            <h1>La Perspective</h1>
-            <p>Regarder au-delà, comprendre le monde</p>
-        </div>
+        <section class="hero">
+            <div>
+                <h2>Gros titre de l’article principal</h2>
+                <p>Résumé de l’article principal...</p>
+            </div>
 
-        <div class="content">
+            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=1000">
+        </section>
 
-            <!-- ARTICLE PRINCIPAL -->
-            <section class="hero">
-                <div>
-                    <h2>Gros titre de l’article principal</h2>
-                    <p>Résumé de l’article principal...</p>
-                </div>
+        <section class="articles">
+            <article>
+                <h3>Titre article 2</h3>
+                <p>Résumé...</p>
+            </article>
 
-                <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=1000">
-            </section>
-
-            <!-- ARTICLES -->
-            <section class="articles">
-                <article>
-                    <h3>Titre article 2</h3>
-                    <p>Résumé...</p>
-                </article>
-
-                <article>
-                    <h3>Titre article 3</h3>
-                    <p>Résumé...</p>
-                </article>
-            </section>
-
-        </div>
+            <article>
+                <h3>Titre article 3</h3>
+                <p>Résumé...</p>
+            </article>
+        </section>
 
     </main>
 
-    <!-- COLONNE DROITE -->
+    <!-- DROITE -->
     <div class="right">
 
         <div class="debat">
