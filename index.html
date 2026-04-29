@@ -3,93 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <title>La Perspective</title>
+
 <style>
 
+/* BASE */
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
 }
 
-header {
-    text-align: center;
-    padding: 25px;
-    border-bottom: 1px solid #ccc;
-    background: white;
+/* LAYOUT GLOBAL */
+.layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 280px;
+    min-height: 100vh;
 }
 
-header h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+/* MENU GAUCHE */
+.sidebar {
+    background: #0b3d2e;
+    color: white;
+    padding: 20px;
 }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-main {
-    max-width: 900px;
-    margin: auto;
-    padding: 30px;
-}
-
-/* ARTICLE PRINCIPAL */
-.hero {
-    background: white;
-    padding: 25px;
+.sidebar h2 {
+    font-size: 40px;
     margin-bottom: 30px;
 }
 
-.hero h2 {
-    font-size: 32px;
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+}
+
+/* CONTENU PRINCIPAL */
+main {
+    padding: 30px;
+}
+
+/* HEADER */
+.header {
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+/* HERO (article principal) */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.hero img {
+    width: 100%;
 }
 
 /* ARTICLES */
-.articles article {
+.articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+article {
+    background: white;
+    padding: 15px;
+}
+
+/* SIDEBAR DROITE */
+.right {
+    padding: 20px;
+}
+
+.debat {
     background: white;
     padding: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid #0b3d2e;
 }
+
+.popular {
+    background: white;
+    padding: 20px;
+}
+
 </style>
+
 </head>
 
 <body>
 
-<header>
-    <h1>La Perspective</h1>
-    <nav>
-        <a href="#">Actualités</a>
-        <a href="#">Société</a>
+<div class="layout">
+
+    <!-- MENU -->
+    <div class="sidebar">
+        <h2>LP</h2>
+        <a href="#">Actualité</a>
+        <a href="#">Société & débats</a>
+        <a href="#">International</a>
         <a href="#">Culture</a>
-    </nav>
-</header>
+        <a href="#">Analyses</a>
+        <a href="#">Vie locale</a>
+        <a href="#">Économie</a>
+    </div>
 
-<main>
+    <!-- CONTENU -->
+    <main>
 
-<section class="hero">
-    <h2>Gros titre de l’article principal</h2>
-    <p>Résumé de l’article principal...</p>
-</section>
+        <div class="header">
+            <h1>La Perspective</h1>
+            <p>Regarder au-delà, comprendre le monde</p>
+        </div>
 
-<section class="articles">
-    <article>
-        <h3>Titre article 2</h3>
-        <p>Résumé court...</p>
-    </article>
+        <!-- ARTICLE PRINCIPAL -->
+        <section class="hero">
+            <div>
+                <h2>Gros titre de l’article principal</h2>
+                <p>Résumé de l’article principal...</p>
+            </div>
 
-    <article>
-        <h3>Titre article 3</h3>
-        <p>Résumé court...</p>
-    </article>
-<section class="debat">
-    <h2>Le débat de la semaine</h2>
-    <p>Faut-il interdire le téléphone au lycée ?</p>
-</section>
+            <img src="https://via.placeholder.com/400x250">
+        </section>
 
-</main>
+        <!-- ARTICLES -->
+        <section class="articles">
+            <article>
+                <h3>Titre article 2</h3>
+                <p>Résumé...</p>
+            </article>
+
+            <article>
+                <h3>Titre article 3</h3>
+                <p>Résumé...</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- DROITE -->
+    <div class="right">
+
+        <div class="debat">
+            <h3>Le débat de la semaine</h3>
+            <p>Faut-il interdire le téléphone au lycée ?</p>
+        </div>
+
+        <div class="popular">
+            <h3>Les plus lus</h3>
+            <ul>
+                <li>Article 1</li>
+                <li>Article 2</li>
+                <li>Article 3</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
