@@ -6,29 +6,35 @@
 
 <style>
 
-/* BASE */
+/* ===== BASE ===== */
 body {
     margin: 0;
     font-family: Georgia, serif;
-    background: #f5f5f5;
+    background: #f2f2f2;
 }
 
-/* LAYOUT GLOBAL */
+/* ===== LAYOUT ===== */
 .layout {
     display: grid;
     grid-template-columns: 220px 1fr 280px;
     min-height: 100vh;
 }
 
-/* MENU GAUCHE */
+/* ===== SIDEBAR GAUCHE ===== */
 .sidebar {
     background: #0b3d2e;
     color: white;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidebar h2 {
-    font-size: 40px;
+    font-size: 36px;
+    border: 2px solid white;
+    display: inline-block;
+    padding: 8px 12px;
     margin-bottom: 30px;
 }
 
@@ -39,29 +45,57 @@ body {
     margin: 10px 0;
 }
 
-/* CONTENU PRINCIPAL */
-main {
-    padding: 30px;
+.sidebar-bottom {
+    font-size: 13px;
+    color: #ccc;
 }
 
-/* HEADER */
+/* ===== CONTENU ===== */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER VERT */
 .header {
-    margin-bottom: 20px;
+    background: #0b3d2e;
+    color: white;
+    padding: 25px 30px;
 }
 
 .header h1 {
-    font-size: 40px;
+    margin: 0;
+    font-size: 42px;
+}
+
+.header p {
+    margin: 5px 0 0;
+    color: #ddd;
+}
+
+/* CONTENU INTERNE */
+.content {
+    padding: 30px;
+}
+
+/* HERO */
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+    background: white;
+    padding: 25px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.hero h2 {
+    font-size: 34px;
     margin: 0;
 }
 
-/* HERO (article principal) */
-.hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    background: white;
-    padding: 20px;
-    margin-bottom: 30px;
+.hero p {
+    color: #555;
 }
 
 .hero img {
@@ -77,13 +111,21 @@ main {
 
 article {
     background: white;
-    padding: 15px;
+    padding: 20px;
 }
-    <button class="btn">Lire l’article</button>
 
-/* SIDEBAR DROITE */
+article h3 {
+    margin-top: 0;
+}
+
+article p {
+    color: #555;
+}
+
+/* ===== SIDEBAR DROITE ===== */
 .right {
     padding: 20px;
+    margin-top: 60px;
 }
 
 .debat {
@@ -93,51 +135,18 @@ article {
     border-left: 4px solid #0b3d2e;
 }
 
+.debat h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
 .popular {
     background: white;
     padding: 20px;
 }
-    .hero {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 20px;
-    background: white;
-    padding: 25px;
-    margin-bottom: 30px;
-    align-items: center;
-}
 
-.hero h2 {
-    font-size: 36px;
-    line-height: 1.2;
-}
-
-.hero p {
-    color: #555;
-}
-
-article h3 {
-    font-size: 20px;
-}
-
-article p {
-    color: #555;
-}
-    .btn {
-    background: #0b3d2e;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-    .debat h3 {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
-    .header p {
-    color: #666;
-    margin-top: 5px;
+.popular ul {
+    padding-left: 20px;
 }
 
 </style>
@@ -148,19 +157,26 @@ article p {
 
 <div class="layout">
 
-    <!-- MENU -->
+    <!-- MENU GAUCHE -->
     <div class="sidebar">
-        <h2>LP</h2>
-        <a href="#">Actualité</a>
-        <a href="#">Société & débats</a>
-        <a href="#">International</a>
-        <a href="#">Culture</a>
-        <a href="#">Analyses</a>
-        <a href="#">Vie locale</a>
-        <a href="#">Économie</a>
+        <div>
+            <h2>LP</h2>
+            <a href="#">Actualité</a>
+            <a href="#">Société & débats</a>
+            <a href="#">International</a>
+            <a href="#">Culture</a>
+            <a href="#">Analyses</a>
+            <a href="#">Vie locale</a>
+            <a href="#">Économie</a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <p>Journal indépendant</p>
+            <p>Créé en 2026</p>
+        </div>
     </div>
 
-    <!-- CONTENU -->
+    <!-- CONTENU CENTRAL -->
     <main>
 
         <div class="header">
@@ -168,32 +184,36 @@ article p {
             <p>Regarder au-delà, comprendre le monde</p>
         </div>
 
-        <!-- ARTICLE PRINCIPAL -->
-        <section class="hero">
-            <div>
-                <h2>Gros titre de l’article principal</h2>
-                <p>Résumé de l’article principal...</p>
-            </div>
+        <div class="content">
 
-            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=1000">
-        </section>
+            <!-- ARTICLE PRINCIPAL -->
+            <section class="hero">
+                <div>
+                    <h2>Gros titre de l’article principal</h2>
+                    <p>Résumé de l’article principal...</p>
+                </div>
 
-        <!-- ARTICLES -->
-        <section class="articles">
-            <article>
-                <h3>Titre article 2</h3>
-                <p>Résumé...</p>
-            </article>
+                <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=1000">
+            </section>
 
-            <article>
-                <h3>Titre article 3</h3>
-                <p>Résumé...</p>
-            </article>
-        </section>
+            <!-- ARTICLES -->
+            <section class="articles">
+                <article>
+                    <h3>Titre article 2</h3>
+                    <p>Résumé...</p>
+                </article>
+
+                <article>
+                    <h3>Titre article 3</h3>
+                    <p>Résumé...</p>
+                </article>
+            </section>
+
+        </div>
 
     </main>
 
-    <!-- DROITE -->
+    <!-- COLONNE DROITE -->
     <div class="right">
 
         <div class="debat">
