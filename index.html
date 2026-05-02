@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Perspective</title>
 
 <style>
@@ -13,7 +14,7 @@ body {
     background: #f2f2f2;
 }
 
-/* ===== GRID GLOBAL ===== */
+/* ===== LAYOUT ===== */
 .layout {
     display: grid;
     grid-template-columns: 220px 1fr 300px;
@@ -21,7 +22,7 @@ body {
     min-height: 100vh;
 }
 
-/* ===== SIDEBAR GAUCHE ===== */
+/* ===== SIDEBAR ===== */
 .sidebar {
     grid-row: 1 / 3;
     background: #0b3d2e;
@@ -36,12 +37,8 @@ body {
     border: 2px solid white;
     display: inline-block;
     padding: 10px 15px;
-    font-size: 28px;
-    margin-bottom: 30px;
-}
-
-.menu {
-    margin-top: 40px;
+    font-size: 26px;
+    margin-bottom: 40px;
 }
 
 .menu a {
@@ -50,14 +47,6 @@ body {
     text-decoration: none;
     margin: 12px 0;
 }
-    a {
-    color: inherit;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
 
 /* ===== HEADER ===== */
 .header {
@@ -65,19 +54,18 @@ a:hover {
     background: #0b3d2e;
     color: white;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     padding-left: 30px;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 42px;
+    font-size: 36px;
 }
 
 .header p {
-    margin: 5px 0 0;
-    color: #ddd;
+    margin: 0 0 0 15px;
+    color: #ccc;
 }
 
 /* ===== CONTENU ===== */
@@ -96,17 +84,12 @@ main {
     align-items: center;
 }
 
-.hero h2 {
-    font-size: 36px;
-    margin: 0;
-}
-
-.hero p {
-    color: #555;
-}
-
 .hero img {
     width: 100%;
+}
+
+.hero h2 {
+    font-size: 32px;
 }
 
 /* ARTICLES */
@@ -125,10 +108,20 @@ article p {
     color: #555;
 }
 
-/* ===== SIDEBAR DROITE ===== */
+/* LIENS */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== COLONNE DROITE ===== */
 .right {
     padding: 20px;
-    margin-top: 120px;
+    margin-top: 110px;
 }
 
 .debat {
@@ -148,8 +141,47 @@ article p {
     padding: 20px;
 }
 
-</style>
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
 
+    .layout {
+        display: block;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .header {
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header p {
+        display: block;
+        margin-top: 5px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .articles {
+        grid-template-columns: 1fr;
+    }
+
+    .right {
+        margin-top: 20px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -162,13 +194,10 @@ article p {
             <div class="logo">LP</div>
 
             <div class="menu">
-                <a href="#">Actualité</a>
-                <a href="#">Société & débats</a>
-                <a href="#">International</a>
-                <a href="#">Culture</a>
-                <a href="#">Analyses</a>
-                <a href="#">Vie locale</a>
-                <a href="#">Économie</a>
+                <a href="actu.html">Actualité</a>
+                <a href="societe.html">Société & débats</a>
+                <a href="international.html">International</a>
+                <a href="culture.html">Culture</a>
             </div>
         </div>
 
@@ -181,7 +210,7 @@ article p {
     <!-- HEADER -->
     <div class="header">
         <h1>La Perspective</h1>
-        <p>Regarder au-delà, comprendre le monde</p>
+        <p>Comprendre le monde</p>
     </div>
 
     <!-- CONTENU -->
@@ -189,7 +218,9 @@ article p {
 
         <section class="hero">
             <div>
-<h2><a href="article1.html">Gros titre de l’article principal</a></h2>
+                <h2>
+                    <a href="article1.html">Gros titre de l’article principal</a>
+                </h2>
                 <p>Résumé de l’article principal...</p>
             </div>
 
@@ -198,12 +229,12 @@ article p {
 
         <section class="articles">
             <article>
-                <h3>Titre article 2</h3>
+                <h3><a href="article2.html">Titre article 2</a></h3>
                 <p>Résumé...</p>
             </article>
 
             <article>
-                <h3>Titre article 3</h3>
+                <h3><a href="article3.html">Titre article 3</a></h3>
                 <p>Résumé...</p>
             </article>
         </section>
@@ -221,9 +252,9 @@ article p {
         <div class="popular">
             <h3>Les plus lus</h3>
             <ul>
-                <li>Article 1</li>
-                <li>Article 2</li>
-                <li>Article 3</li>
+                <li><a href="article1.html">Article 1</a></li>
+                <li><a href="article2.html">Article 2</a></li>
+                <li><a href="article3.html">Article 3</a></li>
             </ul>
         </div>
 
