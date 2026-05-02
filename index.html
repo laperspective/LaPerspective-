@@ -17,7 +17,7 @@ body {
 /* ===== LAYOUT ===== */
 .layout {
     display: grid;
-    grid-template-columns: 220px 1fr 300px;
+    grid-template-columns: 240px 1fr 300px;
     grid-template-rows: 100px 1fr;
     min-height: 100vh;
 }
@@ -33,19 +33,22 @@ body {
     justify-content: space-between;
 }
 
+/* LOGO */
 .logo {
     border: 2px solid white;
-    display: inline-block;
-    padding: 10px 15px;
-    font-size: 26px;
-    margin-bottom: 40px;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
+/* MENU */
 .menu a {
     display: block;
     color: white;
     text-decoration: none;
-    margin: 12px 0;
+    margin: 10px 0;
+    font-size: 15px;
 }
 
 /* ===== HEADER ===== */
@@ -55,17 +58,25 @@ body {
     color: white;
     display: flex;
     align-items: center;
-    padding-left: 30px;
+    padding: 0 20px;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 36px;
+    font-size: 32px;
 }
 
 .header p {
-    margin: 0 0 0 15px;
+    margin-left: 15px;
     color: #ccc;
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
 /* ===== CONTENU ===== */
@@ -81,7 +92,6 @@ main {
     background: white;
     padding: 25px;
     margin-bottom: 30px;
-    align-items: center;
 }
 
 .hero img {
@@ -89,7 +99,7 @@ main {
 }
 
 .hero h2 {
-    font-size: 32px;
+    font-size: 30px;
 }
 
 /* ARTICLES */
@@ -121,24 +131,22 @@ a:hover {
 /* ===== COLONNE DROITE ===== */
 .right {
     padding: 20px;
-    margin-top: 110px;
 }
 
-.debat {
+/* BLOCS */
+.debat, .popular {
     background: white;
     padding: 20px;
     margin-bottom: 20px;
+}
+
+.debat {
     border-left: 4px solid #0b3d2e;
 }
 
 .debat h3 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
-}
-
-.popular {
-    background: white;
-    padding: 20px;
 }
 
 /* ===== MOBILE ===== */
@@ -148,8 +156,23 @@ a:hover {
         display: block;
     }
 
+    /* MENU MOBILE */
+    .menu-toggle {
+        display: block;
+    }
+
     .sidebar {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 240px;
+        height: 100%;
+        z-index: 1000;
+        transition: 0.3s;
+    }
+
+    .sidebar.active {
+        left: 0;
     }
 
     .header {
@@ -175,10 +198,6 @@ a:hover {
         grid-template-columns: 1fr;
     }
 
-    .right {
-        margin-top: 20px;
-    }
-
 }
 
 </style>
@@ -190,6 +209,7 @@ a:hover {
 
     <!-- SIDEBAR -->
     <div class="sidebar">
+
         <div>
             <div class="logo">LP</div>
 
@@ -198,6 +218,12 @@ a:hover {
                 <a href="societe.html">Société & débats</a>
                 <a href="international.html">International</a>
                 <a href="culture.html">Culture</a>
+                <a href="#">Analyses</a>
+                <a href="#">Vie locale</a>
+                <a href="#">Économie</a>
+                <a href="#">Débat de la semaine</a>
+                <a href="#">Interviews</a>
+                <a href="#">Nécrologie</a>
             </div>
         </div>
 
@@ -205,10 +231,12 @@ a:hover {
             Journal indépendant<br>
             Créé en 2026
         </div>
+
     </div>
 
     <!-- HEADER -->
     <div class="header">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <h1>La Perspective</h1>
         <p>Comprendre le monde</p>
     </div>
@@ -218,9 +246,7 @@ a:hover {
 
         <section class="hero">
             <div>
-                <h2>
-                    <a href="article1.html">Gros titre de l’article principal</a>
-                </h2>
+                <h2><a href="article1.html">Gros titre de l’article principal</a></h2>
                 <p>Résumé de l’article principal...</p>
             </div>
 
@@ -261,6 +287,13 @@ a:hover {
     </div>
 
 </div>
+
+<!-- SCRIPT MENU -->
+<script>
+function toggleMenu() {
+    document.querySelector(".sidebar").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
