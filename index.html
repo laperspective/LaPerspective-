@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Perspective</title>
 
-
 <style>
 
 /* ===== BASE ===== */
@@ -179,33 +178,6 @@ a:hover {
     .right {
         margin-top: 20px;
     }
-    .menu-toggle {
-    display: none;
-    font-size: 28px;
-    cursor: pointer;
-    margin-right: 15px;
-}
-    @media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: -250px;
-        width: 220px;
-        height: 100%;
-        transition: 0.3s;
-        z-index: 1000;
-    }
-
-    .sidebar.active {
-        left: 0;
-    }
-
-}
 
 }
 
@@ -240,12 +212,6 @@ a:hover {
         <h1>La Perspective</h1>
         <p>Comprendre le monde</p>
     </div>
-
-    <div class="header">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    
-</div>
-    
 
     <!-- CONTENU -->
     <main>
