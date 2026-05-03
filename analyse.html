@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Perspective</title>
+
+<style>
+
+/* ===== BASE ===== */
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #f2f2f2;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+    display: grid;
+    grid-template-columns: 240px 1fr 300px;
+    grid-template-rows: 100px 1fr;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    grid-row: 1 / 3;
+    background: #0b3d2e;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+    border: 2px solid white;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* MENU */
+.menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+/* ===== HEADER ===== */
+.header {
+    grid-column: 2 / 4;
+    background: #0b3d2e;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin-left: 15px;
+    color: #ccc;
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* ===== CONTENU ===== */
+main {
+    padding: 30px;
+}
+
+/* HERO */
+.hero {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 20px;
+    background: white;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.hero img {
+    width: 100%;
+}
+
+.hero h2 {
+    font-size: 30px;
+}
+
+/* ARTICLES */
+.articles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+article {
+    background: white;
+    padding: 20px;
+}
+
+article p {
+    color: #555;
+}
+
+/* LIENS */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== COLONNE DROITE ===== */
+.right {
+    padding: 20px;
+}
+
+/* BLOCS */
+.debat, .popular {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.debat {
+    border-left: 4px solid #0b3d2e;
+}
+
+.debat h3 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+    .layout {
+        display: block;
+    }
+
+    /* MENU MOBILE */
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 240px;
+        height: 100%;
+        z-index: 1000;
+        transition: 0.3s;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .header {
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .header p {
+        display: block;
+        margin-top: 5px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .articles {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div>
+            <div class="logo">LP</div>
+
+            <div class="menu">
+                <a href="actu.html">Actualité</a>
+                <a href="societe.html">Société & débats</a>
+                <a href="international.html">International</a>
+                <a href="culture.html">Culture</a>
+                <a href="#">Analyses</a>
+                <a href="#">Vie locale</a>
+                <a href="#">Économie</a>
+                <a href="#">Débat de la semaine</a>
+                <a href="#">Interviews</a>
+                <a href="#">Nécrologie</a>
+            </div>
+        </div>
+
+        <div style="font-size: 13px; color: #ccc;">
+            Journal indépendant<br>
+            Créé en 2026
+        </div>
+
+    </div>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <h1>La Perspective</h1>
+        <p>Comprendre le monde</p>
+    </div>
+
+    <!-- CONTENU --><main>
+
+<h2>Analyses</h2>
+
+<article>
+    <h2>Comprendre un sujet complexe</h2>
+    <p>Long texte détaillé...</p>
+</article>
+
+</main>
+
+    <!-- DROITE -->
+    <div class="right">
+
+        <div class="debat">
+            <h3>Le débat de la semaine</h3>
+            <p>Faut-il interdire le téléphone au lycée ?</p>
+        </div>
+
+        <div class="popular">
+            <h3>Les plus lus</h3>
+            <ul>
+                <li><a href="article1.html">Article 1</a></li>
+                <li><a href="article2.html">Article 2</a></li>
+                <li><a href="article3.html">Article 3</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT MENU -->
+<script>
+function toggleMenu() {
+    document.querySelector(".sidebar").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
