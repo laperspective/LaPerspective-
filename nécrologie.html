@@ -238,49 +238,37 @@ a:hover {
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
 }
-
-/* CARTE FIXE */
-.necro-card {
-    background: white;
+    .necro-table {
     display: grid;
-    grid-template-rows: 60px 1fr 120px;
-    height: 320px; /* HAUTEUR IDENTIQUE */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 80px 200px 120px;
+    border: 2px solid black;
+}
+
+.cell {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    border: 1px solid #ddd;
+    padding: 10px;
 }
 
-/* HAUT */
-.necro-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* COLONNE TITRES (Nom / Photo / Infos) */
+.header {
     font-weight: bold;
-    padding: 5px;
+    background: #f5f5f5;
 }
 
-/* IMAGE */
-.necro-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.necro-img img {
+/* IMAGES */
+.cell img {
     max-width: 100%;
     max-height: 100%;
 }
-
-/* BAS */
-.necro-bottom {
-    font-size: 13px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
     @media (max-width: 768px) {
-    .necro-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .necro-table {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
     }
 }
 
@@ -330,78 +318,29 @@ a:hover {
 
 <h2>Nécrologie</h2>
 
-<div class="necro-grid">
+<div class="necro-table">
 
-    <div class="necro-card">
-        <div class="necro-top">Nom complet</div>
+    <!-- LIGNE NOMS -->
+    <div class="cell header">Nom</div>
+    <div class="cell">Personne 1</div>
+    <div class="cell">Personne 2</div>
+    <div class="cell">Personne 3</div>
+    <div class="cell">Personne 4</div>
 
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
+    <!-- LIGNE PHOTOS -->
+    <div class="cell header">Photo</div>
+    <div class="cell"><img src="https://via.placeholder.com/150"></div>
+    <div class="cell"><img src="https://via.placeholder.com/150"></div>
+    <div class="cell"><img src="https://via.placeholder.com/150"></div>
+    <div class="cell"><img src="https://via.placeholder.com/150"></div>
 
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : 1950</p>
-            <p>Décès : 2025</p>
-            <p>Âge : 75 ans</p>
-        </div>
+    <!-- LIGNE INFOS -->
+    <div class="cell header">Infos</div>
+    <div class="cell">Cause<br>1950–2025<br>75 ans</div>
+    <div class="cell">Cause<br>1940–2024<br>84 ans</div>
+    <div class="cell">Cause<br>1960–2023<br>63 ans</div>
+    <div class="cell">Cause<br>1930–2020<br>90 ans</div>
 
-        <div class="necro-card">
-        <div class="necro-top">Nom complet</div>
-
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : 1950</p>
-            <p>Décès : 2025</p>
-            <p>Âge : 75 ans</p>
-        </div>
-
-            <div class="necro-card">
-        <div class="necro-top">Nom complet</div>
-
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : 1950</p>
-            <p>Décès : 2025</p>
-            <p>Âge : 75 ans</p>
-        </div>
-
-                <div class="necro-card">
-        <div class="necro-top">Nom complet</div>
-
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : 1950</p>
-            <p>Décès : 2025</p>
-            <p>Âge : 75 ans</p>
-        </div>
-
-                    <div class="necro-card">
-        <div class="necro-top">Nom complet</div>
-
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : 1950</p>
-            <p>Décès : 2025</p>
-            <p>Âge : 75 ans</p>
-        </div>
-    </div>
 </div>
 
 </main>
