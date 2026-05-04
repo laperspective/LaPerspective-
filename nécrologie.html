@@ -233,6 +233,56 @@ a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+    .necro-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+/* CARTE FIXE */
+.necro-card {
+    background: white;
+    display: grid;
+    grid-template-rows: 60px 1fr 120px;
+    height: 320px; /* HAUTEUR IDENTIQUE */
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* HAUT */
+.necro-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 5px;
+}
+
+/* IMAGE */
+.necro-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.necro-img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* BAS */
+.necro-bottom {
+    font-size: 13px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+    @media (max-width: 768px) {
+    .necro-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 </style>
 </head>
@@ -282,9 +332,64 @@ a:hover {
 
 <div class="necro-grid">
 
-    <!-- CARTE 1 -->
     <div class="necro-card">
-        <div class="necro-top">Nom de la personne</div>
+        <div class="necro-top">Nom complet</div>
+
+        <div class="necro-img">
+            <img src="https://via.placeholder.com/200x250">
+        </div>
+
+        <div class="necro-bottom">
+            <p>Cause : ...</p>
+            <p>Naissance : 1950</p>
+            <p>Décès : 2025</p>
+            <p>Âge : 75 ans</p>
+        </div>
+
+        <div class="necro-card">
+        <div class="necro-top">Nom complet</div>
+
+        <div class="necro-img">
+            <img src="https://via.placeholder.com/200x250">
+        </div>
+
+        <div class="necro-bottom">
+            <p>Cause : ...</p>
+            <p>Naissance : 1950</p>
+            <p>Décès : 2025</p>
+            <p>Âge : 75 ans</p>
+        </div>
+
+            <div class="necro-card">
+        <div class="necro-top">Nom complet</div>
+
+        <div class="necro-img">
+            <img src="https://via.placeholder.com/200x250">
+        </div>
+
+        <div class="necro-bottom">
+            <p>Cause : ...</p>
+            <p>Naissance : 1950</p>
+            <p>Décès : 2025</p>
+            <p>Âge : 75 ans</p>
+        </div>
+
+                <div class="necro-card">
+        <div class="necro-top">Nom complet</div>
+
+        <div class="necro-img">
+            <img src="https://via.placeholder.com/200x250">
+        </div>
+
+        <div class="necro-bottom">
+            <p>Cause : ...</p>
+            <p>Naissance : 1950</p>
+            <p>Décès : 2025</p>
+            <p>Âge : 75 ans</p>
+        </div>
+
+                    <div class="necro-card">
+        <div class="necro-top">Nom complet</div>
 
         <div class="necro-img">
             <img src="https://via.placeholder.com/200x250">
@@ -297,67 +402,9 @@ a:hover {
             <p>Âge : 75 ans</p>
         </div>
     </div>
-
-    <!-- CARTE 2 -->
-    <div class="necro-card">
-        <div class="necro-top">Nom</div>
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : ...</p>
-            <p>Décès : ...</p>
-            <p>Âge : ...</p>
-        </div>
-    </div>
-
-
-    <!-- CARTE 3 -->
-    <div class="necro-card">
-        <div class="necro-top">Nom</div>
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : ...</p>
-            <p>Décès : ...</p>
-            <p>Âge : ...</p>
-        </div>
-    </div>
-
 </div>
-  
-    <!-- CARTE 4 -->
-    <div class="necro-card">
-        <div class="necro-top">Nom</div>
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : ...</p>
-            <p>Décès : ...</p>
-            <p>Âge : ...</p>
-        </div>
-    </div>
-  <!-- CARTE 5-->
-    <div class="necro-card">
-        <div class="necro-top">Nom</div>
-        <div class="necro-img">
-            <img src="https://via.placeholder.com/200x250">
-        </div>
-        <div class="necro-bottom">
-            <p>Cause : ...</p>
-            <p>Naissance : ...</p>
-            <p>Décès : ...</p>
-            <p>Âge : ...</p>
-        </div>
-    </div>
 
 </main>
-
     <!-- DROITE -->
     <div class="right">
 
