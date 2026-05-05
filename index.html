@@ -51,12 +51,32 @@ body {
 }
 
 /* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* espace entre les lignes */
+    margin-top: 20px;
+}
+
 .menu a {
-    display: block;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.menu a:hover {
+    opacity: 0.7;
+}
+    .menu a {
+    padding: 5px 0;
+    border-left: 2px solid transparent;
+}
+
+.menu a:hover {
+    border-left: 2px solid white;
+    padding-left: 8px;
+}display: block;
 }
 
 /* ===== HEADER ===== */
