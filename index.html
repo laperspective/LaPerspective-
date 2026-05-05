@@ -7,14 +7,14 @@
 
 <style>
 
-/* ===== BASE ===== */
+/* RESET */
 body {
     margin: 0;
     font-family: Georgia, serif;
-    background: #f2f2f2;
+    background: #f5f5f5;
 }
 
-/* ===== LAYOUT ===== */
+/* LAYOUT GLOBAL */
 .layout {
     display: grid;
     grid-template-columns: 240px 1fr 300px;
@@ -22,53 +22,57 @@ body {
     min-height: 100vh;
 }
 
-/* ===== SIDEBAR ===== */
+/* HEADER */
+.header {
+    grid-column: 2 / 4;
+    background: #0b3d2e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.tagline {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* SIDEBAR */
 .sidebar {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-/* LOGO */
-..logo {
+.logo {
     border: 2px solid white;
-    padding: 10px;
-    text-align: center;
-    font-size: 24px;
     display: inline-block;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
 }
 
 .logo:hover {
     opacity: 0.8;
-}a {
-    color: inherit;
-    text-decoration: none;
-}
 }
 
-/* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* espace entre les lignes */
-    margin-top: 20px;
+    gap: 12px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
-    line-height: 1.4;
-}
-
-.menu a:hover {
-    opacity: 0.7;
-}
-    .menu a {
     padding: 5px 0;
     border-left: 2px solid transparent;
 }
@@ -76,93 +80,50 @@ body {
 .menu a:hover {
     border-left: 2px solid white;
     padding-left: 8px;
-}display: block;
 }
 
-/* ===== HEADER ===== */
-.header {
-    grid-column: 2 / 4;
-    background: #0b3d2e;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.header h1 {
-    margin: 0;
-    font-size: 32px;
-}
-
-.header p {
-    margin-left: 15px;
-    color: #ccc;
-}
-
-/* MENU MOBILE */
-.menu-toggle {
-    display: none;
-    font-size: 28px;
-    margin-right: 15px;
-    cursor: pointer;
-}
-
-/* ===== CONTENU ===== */
-main {
+/* MAIN */
+.main {
     padding: 30px;
 }
 
-/* HERO */
-.hero {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 20px;
+.article-main {
     background: white;
-    padding: 25px;
-    margin-bottom: 30px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.hero img {
-    width: 100%;
-}
-
-.hero h2 {
-    font-size: 30px;
+.article-main img {
+    width: 200px;
 }
 
 /* ARTICLES */
 .articles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     gap: 20px;
+    margin-top: 20px;
 }
 
 article {
     background: white;
     padding: 20px;
+    flex: 1;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-article p {
-    color: #555;
+article:hover {
+    transform: translateY(-3px);
 }
 
-/* LIENS */
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ===== COLONNE DROITE ===== */
+/* RIGHT COLUMN */
 .right {
-    padding: 20px;
+    padding: 30px 20px;
 }
 
-/* BLOCS */
-.debat, .popular {
+.box {
     background: white;
     padding: 20px;
     margin-bottom: 20px;
@@ -172,30 +133,44 @@ a:hover {
     border-left: 4px solid #0b3d2e;
 }
 
-.debat h3 {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+/* MOBILE MENU BUTTON */
+.menu-btn {
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 30px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-/* ===== MOBILE ===== */
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
     .layout {
-        display: block;
-    }
-
-    /* MENU MOBILE */
-    .menu-toggle {
-        display: block;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
     }
 
     .sidebar {
         position: fixed;
-        top: 0;
         left: -260px;
+        top: 0;
         width: 240px;
         height: 100%;
-        z-index: 1000;
+        z-index: 2000;
         transition: 0.3s;
     }
 
@@ -203,27 +178,27 @@ a:hover {
         left: 0;
     }
 
-    .header {
-        justify-content: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .header p {
+    .menu-btn {
         display: block;
-        margin-top: 5px;
+        color: white;
     }
 
-    main {
-        padding: 15px;
+    .header {
+        grid-column: 1;
+        justify-content: center;
+        position: relative;
     }
 
-    .hero {
-        grid-template-columns: 1fr;
+    .right {
+        grid-column: 1;
     }
 
     .articles {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .article-main {
+        flex-direction: column;
     }
 }
 
@@ -232,82 +207,74 @@ a:hover {
 
 <body>
 
+<div class="overlay" onclick="toggleMenu()"></div>
+
 <div class="layout">
 
     <!-- SIDEBAR -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
+        <a href="index.html" class="logo">LP</a>
 
-        <div>
-<a href="index.html" class="logo">LP</a>
-
-            <div class="menu">
-                <a href="actu.html">Actualité</a>
-                <a href="societéetdébats.html">Société & débats</a>
-                <a href="international.html">International</a>
-                <a href="culture.html">Culture</a>
-                <a href="analyse.html">Analyses</a>
-                <a href="vieenfrance.html">Vie Française</a>
-                <a href="economie.html">Économie</a>
-                <a href="débat.html">Débat de la semaine</a>
-                <a href="interviews.html">Interviews</a>
-                <a href="nécrologie.html">Nécrologie</a>
-            </div>
+        <div class="menu">
+            <a href="#">Actualité</a>
+            <a href="#">Société & débats</a>
+            <a href="#">International</a>
+            <a href="#">Culture</a>
+            <a href="#">Analyses</a>
+            <a href="#">Vie locale</a>
+            <a href="#">Économie</a>
+            <a href="#">Débat de la semaine</a>
+            <a href="#">Interviews</a>
+            <a href="#">Nécrologie</a>
         </div>
-
-        <div style="font-size: 13px; color: #ccc;">
-            Journal indépendant<br>
-            Créé en 2026
-        </div>
-
     </div>
 
     <!-- HEADER -->
     <div class="header">
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <h1>La Perspective</h1>
-        <p>Comprendre le monde</p>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+        <h1><a href="index.html" style="color:white;text-decoration:none;">La Perspective</a></h1>
+        <div class="tagline">Comprendre le monde</div>
     </div>
 
-    <!-- CONTENU -->
-    <main>
+    <!-- MAIN -->
+    <div class="main">
 
-        <section class="hero">
+        <div class="article-main">
             <div>
-                <h2><a href="article1.html">Gros titre de l’article principal</a></h2>
+                <h2>Gros titre de l’article principal</h2>
                 <p>Résumé de l’article principal...</p>
             </div>
+            <img src="https://picsum.photos/300/200">
+        </div>
 
-            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=1000">
-        </section>
-
-        <section class="articles">
-            <article>
-                <h3><a href="article2.html">Titre article 2</a></h3>
+        <div class="articles">
+            <article onclick="location.href='article.html'">
+                <h3>Titre article 2</h3>
                 <p>Résumé...</p>
             </article>
 
-            <article>
-                <h3><a href="article3.html">Titre article 3</a></h3>
+            <article onclick="location.href='article.html'">
+                <h3>Titre article 3</h3>
                 <p>Résumé...</p>
             </article>
-        </section>
+        </div>
 
-    </main>
+    </div>
 
-    <!-- DROITE -->
+    <!-- RIGHT COLUMN -->
     <div class="right">
 
-        <div class="debat">
+        <div class="box debat">
             <h3>Le débat de la semaine</h3>
             <p>Faut-il interdire le téléphone au lycée ?</p>
         </div>
 
-        <div class="popular">
+        <div class="box">
             <h3>Les plus lus</h3>
             <ul>
-                <li><a href="article1.html">Article 1</a></li>
-                <li><a href="article2.html">Article 2</a></li>
-                <li><a href="article3.html">Article 3</a></li>
+                <li>Article 1</li>
+                <li>Article 2</li>
+                <li>Article 3</li>
             </ul>
         </div>
 
@@ -315,10 +282,10 @@ a:hover {
 
 </div>
 
-<!-- SCRIPT MENU -->
 <script>
 function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
+    document.getElementById("sidebar").classList.toggle("active");
+    document.querySelector(".overlay").classList.toggle("active");
 }
 </script>
 
