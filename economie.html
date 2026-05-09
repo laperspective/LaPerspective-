@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Économie - La Perspective</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* ===== BASE ===== */
 body {
     margin: 0;
     font-family: Georgia, serif;
-    background: #f2f2f2;
+    background: #f5f5f5;
 }
 
-/* ===== LAYOUT ===== */
 .layout {
     display: grid;
     grid-template-columns: 240px 1fr 300px;
@@ -23,91 +22,54 @@ body {
     min-height: 100vh;
 }
 
-/* ===== SIDEBAR ===== */
+/* SIDEBAR */
 .sidebar {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-/* LOGO */
 .logo {
     border: 2px solid white;
     padding: 10px;
     text-align: center;
-    font-size: 24px;
-    display: inline-block;
+    margin-bottom: 20px;
 }
 
-.logo:hover {
-    opacity: 0.8;
-}
-
-/* MENU */
 .menu a {
-    display: block;
+    display: flex;
+    gap: 10px;
     color: white;
     text-decoration: none;
     margin: 10px 0;
-    font-size: 15px;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header {
     grid-column: 2 / 4;
     background: #0b3d2e;
     color: white;
     display: flex;
     align-items: center;
-    padding: 0 20px;
+    justify-content: center;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 32px;
 }
 
-.header p {
-    margin-left: 15px;
-    color: #ccc;
-}
-
-/* MENU MOBILE */
-.menu-toggle {
-    display: none;
-    font-size: 28px;
-    margin-right: 15px;
-    cursor: pointer;
-}
-
-/* ===== CONTENU ===== */
-main {
+/* MAIN */
+.main {
     padding: 30px;
 }
 
-/* HERO */
 .hero {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 20px;
     background: white;
-    padding: 25px;
-    margin-bottom: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.hero img {
-    width: 100%;
-}
-
-.hero h2 {
-    font-size: 30px;
-}
-
-/* ARTICLES */
 .articles {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -119,95 +81,30 @@ article {
     padding: 20px;
 }
 
-article p {
-    color: #555;
-}
-
-/* LIENS */
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ===== COLONNE DROITE ===== */
+/* RIGHT */
 .right {
     padding: 20px;
 }
 
-/* BLOCS */
-.debat, .popular {
+.box {
     background: white;
     padding: 20px;
     margin-bottom: 20px;
 }
 
-.debat {
-    border-left: 4px solid #0b3d2e;
-}
-
-.debat h3 {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-}
-
-/* ===== MOBILE ===== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
     .layout {
-        display: block;
-    }
-
-    /* MENU MOBILE */
-    .menu-toggle {
-        display: block;
+        grid-template-columns: 1fr;
     }
 
     .sidebar {
-        position: fixed;
-        top: 0;
-        left: -260px;
-        width: 240px;
-        height: 100%;
-        z-index: 1000;
-        transition: 0.3s;
-    }
-
-    .sidebar.active {
-        left: 0;
-    }
-
-    .header {
-        justify-content: center;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .header p {
-        display: block;
-        margin-top: 5px;
-    }
-
-    main {
-        padding: 15px;
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
+        display: none;
     }
 
     .articles {
         grid-template-columns: 1fr;
     }
-
-}
-    .menu a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 </style>
@@ -217,76 +114,62 @@ a:hover {
 
 <div class="layout">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="index.html" class="logo">LP</a>
 
-        <div>
-<a href="index.html" class="logo">LP</<div class="menu">
-    <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-    <a href="societéetdébats.html"><i class="fas fa-comments"></i> Société & débats</a>
-    <a href="international.html"><i class="fas fa-globe"></i> International</a>
-    <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-    <a href="analyse.html"><i class="fas fa-chart-line"></i> Analyses</a>
-    <a href="vieenfrance.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-    <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-    <a href="débat.html"><i class="fas fa-fire"></i> Débat de la semaine</a>
-    <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-    <a href="nécrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+    <div class="menu">
+        <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
+        <a href="#"><i class="fas fa-newspaper"></i> Actualité</a>
+        <a href="#"><i class="fas fa-coins"></i> Économie</a>
+    </div>
 </div>
-        </div>
 
-        <div style="font-size: 13px; color: #ccc;">
-            Journal indépendant<br>
-            Créé en 2026
-        </div>
+<!-- HEADER -->
+<div class="header">
+    <h1>Économie</h1>
+</div>
 
+<!-- MAIN -->
+<div class="main">
+
+    <div class="hero">
+        <h2>Inflation : une hausse qui inquiète</h2>
+        <p>Analyse des dernières tendances économiques...</p>
     </div>
 
-    <!-- HEADER -->
-    <div class="header">
-        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-        <h1>La Perspective</h1>
-        <p>Comprendre le monde</p>
-    </div>
+    <div class="articles">
+        <article>
+            <h3>Marchés financiers en baisse</h3>
+            <p>Résumé rapide...</p>
+        </article>
 
-    <!-- CONTENU -->
-    <main>
-
-<h2>Économie</h2>
-
-<article>
-    <h3>Inflation en hausse</h3>
-    <p>Analyse rapide...</p>
-</article>
-
-</main>
-    <!-- DROITE -->
-    <div class="right">
-
-        <div class="debat">
-            <h3>Le débat de la semaine</h3>
-            <p>Faut-il interdire le téléphone au lycée ?</p>
-        </div>
-
-        <div class="popular">
-            <h3>Les plus lus</h3>
-            <ul>
-                <li><a href="article1.html">Article 1</a></li>
-                <li><a href="article2.html">Article 2</a></li>
-                <li><a href="article3.html">Article 3</a></li>
-            </ul>
-        </div>
-
+        <article>
+            <h3>Le pouvoir d’achat en question</h3>
+            <p>Résumé rapide...</p>
+        </article>
     </div>
 
 </div>
 
-<!-- SCRIPT MENU -->
-<script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-}
-</script>
+<!-- RIGHT -->
+<div class="right">
+
+    <div class="box">
+        <h3>Suivi des marchés</h3>
+
+        <!-- WIDGET BOURSE -->
+        <iframe src="https://widget.finnhub.io/widgets/forex?symbol=EURUSD" width="100%" height="200"></iframe>
+    </div>
+
+    <div class="box">
+        <h3>À retenir</h3>
+        <p>Résumé des points clés économiques.</p>
+    </div>
+
+</div>
+
+</div>
 
 </body>
 </html>
