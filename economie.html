@@ -3,22 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Économie - La Perspective</title>
+<title>La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
+/* BASE */
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
 }
 
+/* LAYOUT */
 .layout {
     display: grid;
     grid-template-columns: 240px 1fr 300px;
-    grid-template-rows: 100px 1fr;
+    grid-template-rows: 90px 1fr;
     min-height: 100vh;
 }
 
@@ -35,14 +37,21 @@ body {
     padding: 10px;
     text-align: center;
     margin-bottom: 20px;
+    font-size: 22px;
 }
 
+/* MENU */
 .menu a {
     display: flex;
+    align-items: center;
     gap: 10px;
     color: white;
     text-decoration: none;
     margin: 10px 0;
+}
+
+.menu a:hover {
+    opacity: 0.7;
 }
 
 /* HEADER */
@@ -66,19 +75,32 @@ body {
 
 .hero {
     background: white;
-    padding: 20px;
+    padding: 25px;
     margin-bottom: 20px;
 }
 
+.hero h2 {
+    font-size: 28px;
+}
+
+/* ARTICLES */
 .articles {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-article {
+.article {
+    display: block;
     background: white;
     padding: 20px;
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+.article:hover {
+    transform: translateY(-3px);
 }
 
 /* RIGHT */
@@ -92,16 +114,14 @@ article {
     margin-bottom: 20px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 768px) {
     .layout {
         grid-template-columns: 1fr;
     }
-
     .sidebar {
         display: none;
     }
-
     .articles {
         grid-template-columns: 1fr;
     }
@@ -114,59 +134,62 @@ article {
 
 <div class="layout">
 
-<!-- SIDEBAR -->
+<!-- MENU -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="index.html"><i class="fas fa-home"></i> Accueil</a>
-        <a href="#"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="#"><i class="fas fa-coins"></i> Économie</a>
+        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
+        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
+        <a href="international.html"><i class="fas fa-globe"></i> International</a>
+        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
+        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
+        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
+        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
+        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
+        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
+        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
 </div>
 
 <!-- HEADER -->
 <div class="header">
-    <h1>Économie</h1>
+    <h1><a href="index.html" style="color:white;text-decoration:none;">La Perspective</a></h1>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
     <div class="hero">
-        <h2>Inflation : une hausse qui inquiète</h2>
-        <p>Analyse des dernières tendances économiques...</p>
+        <h2>Grand titre principal</h2>
+        <p>Résumé du sujet principal.</p>
     </div>
 
     <div class="articles">
-        <article>
-            <h3>Marchés financiers en baisse</h3>
-            <p>Résumé rapide...</p>
-        </article>
+        <a href="article1.html" class="article">
+            <h3>Article 1</h3>
+            <p>Résumé</p>
+        </a>
 
-        <article>
-            <h3>Le pouvoir d’achat en question</h3>
-            <p>Résumé rapide...</p>
-        </article>
+        <a href="article2.html" class="article">
+            <h3>Article 2</h3>
+            <p>Résumé</p>
+        </a>
+
+        <a href="article3.html" class="article">
+            <h3>Article 3</h3>
+            <p>Résumé</p>
+        </a>
     </div>
 
 </div>
 
 <!-- RIGHT -->
 <div class="right">
-
     <div class="box">
-        <h3>Suivi des marchés</h3>
-
-        <!-- WIDGET BOURSE -->
-        <iframe src="https://widget.finnhub.io/widgets/forex?symbol=EURUSD" width="100%" height="200"></iframe>
+        <h3>Débat</h3>
+        <p>Question de la semaine</p>
     </div>
-
-    <div class="box">
-        <h3>À retenir</h3>
-        <p>Résumé des points clés économiques.</p>
-    </div>
-
 </div>
 
 </div>
