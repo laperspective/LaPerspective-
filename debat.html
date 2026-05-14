@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Débat - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
-/* BASE */
 body {
     margin: 0;
     font-family: Georgia, serif;
@@ -29,29 +29,38 @@ body {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 22px;
+    color: white !important;
+    text-decoration: none;
+    display: block;
 }
 
 /* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 .menu a {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
 }
 
 .menu a:hover {
-    opacity: 0.7;
+    padding-left: 8px;
+    border-left: 2px solid white;
 }
 
 /* HEADER */
@@ -70,42 +79,59 @@ body {
 
 /* MAIN */
 .main {
-    padding: 30px;
+    padding: 40px;
+    max-width: 900px;
 }
 
-.hero {
+/* QUESTION */
+.question {
+    background: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-left: 5px solid #0b3d2e;
+}
+
+.question h2 {
+    margin-top: 0;
+}
+
+/* GRAPH */
+canvas {
+    max-width: 500px;
+    margin: 30px auto;
+    display: block;
+}
+
+/* ANALYSE */
+.analysis {
     background: white;
     padding: 25px;
-    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
-.hero h2 {
-    font-size: 28px;
-}
-
-/* ARTICLES */
-.articles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.article {
-    display: block;
+/* FORM */
+.form-box {
     background: white;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-    transition: 0.2s;
+    padding: 25px;
+    margin-top: 30px;
 }
 
-.article:hover {
-    transform: translateY(-3px);
+/* CITATIONS */
+.quotes {
+    margin-top: 30px;
+}
+
+.quote {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-style: italic;
+    border-left: 3px solid #0b3d2e;
 }
 
 /* RIGHT */
 .right {
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 .box {
@@ -119,11 +145,13 @@ body {
     .layout {
         grid-template-columns: 1fr;
     }
+
     .sidebar {
         display: none;
     }
-    .articles {
-        grid-template-columns: 1fr;
+
+    .main {
+        padding: 20px;
     }
 }
 
@@ -134,7 +162,7 @@ body {
 
 <div class="layout">
 
-<!-- MENU -->
+<!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
@@ -154,32 +182,63 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-    <h1><a href="index.html" style="color:white;text-decoration:none;">La Perspective</a></h1>
+    <h1>Débat</h1>
 </div>
 
 <!-- MAIN -->
-<<div class="main">
+<div class="main">
 
-<h2>Débat de la semaine</h2>
+<div class="question">
+    <h2>Faut-il interdire le téléphone au lycée ?</h2>
+    <p>Chaque semaine, La Perspective donne la parole à ses lecteurs.</p>
+</div>
 
-<div class="box">
-    <h3>Faut-il interdire le téléphone au lycée ?</h3>
-    <p>Donne ton avis :</p>
+<!-- GRAPH -->
+<canvas id="graphique"></canvas>
 
-    <iframe src="https://docs.google.com/forms/d/1mBon3f9hUL9lxF7efJRUbjlq1LH44YeeYDASAFDvyKY/viewform" width="100%" height="500"></iframe>
+<!-- ANALYSE -->
+<div class="analysis">
+    <h3>Analyse</h3>
+    <p>Une majorité de participants semble opposée à une interdiction totale. Toutefois, une part importante souligne les effets négatifs sur la concentration.</p>
+</div>
+
+<!-- FORM -->
+<div class="form-box">
+    <h3>Donnez votre avis</h3>
+    <iframe src="TON LIEN GOOGLE FORM" width="100%" height="500"></iframe>
+</div>
+
+<!-- QUOTES -->
+<div class="quotes">
+    <div class="quote">"Le téléphone est utile mais doit être encadré."</div>
+    <div class="quote">"Interdire complètement serait excessif."</div>
 </div>
 
 </div>
-    
+
 <!-- RIGHT -->
 <div class="right">
     <div class="box">
-        <h3>Débat</h3>
-        <p>Question de la semaine</p>
+        <h3>À retenir</h3>
+        <p>Un débat équilibré entre liberté et encadrement.</p>
     </div>
 </div>
 
 </div>
+
+<script>
+const ctx = document.getElementById('graphique');
+
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Pour', 'Contre', 'Sans avis'],
+        datasets: [{
+            data: [12, 19, 5],
+        }]
+    }
+});
+</script>
 
 </body>
 </html>
