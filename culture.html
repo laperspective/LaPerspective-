@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Culture - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -29,29 +29,32 @@ body {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 22px;
+    color: white !important;
+    text-decoration: none;
+    display: block;
 }
 
-/* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 .menu a {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
-}
-
-.menu a:hover {
-    opacity: 0.7;
 }
 
 /* HEADER */
@@ -62,50 +65,75 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-.header h1 {
-    margin: 0;
-}
+.header h1 { margin: 0; }
+.header p { opacity: 0.8; }
 
 /* MAIN */
 .main {
-    padding: 30px;
+    padding: 40px;
 }
 
-.hero {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
+/* HERO CULTURE */
+.hero-culture {
+    background: black;
+    color: white;
+    padding: 40px;
+    margin-bottom: 30px;
 }
 
-.hero h2 {
-    font-size: 28px;
+.hero-culture h2 {
+    font-size: 32px;
 }
 
-/* ARTICLES */
-.articles {
+/* GRID ARTICLES */
+.grid-culture {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
 }
 
-.article {
-    display: block;
+/* GRAND ARTICLE */
+.feature {
     background: white;
     padding: 20px;
-    text-decoration: none;
-    color: black;
-    transition: 0.2s;
 }
 
-.article:hover {
-    transform: translateY(-3px);
+.feature img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* LISTE */
+.side-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.side-item {
+    background: white;
+    padding: 15px;
+}
+
+/* SECTION CRITIQUES */
+.critiques {
+    margin-top: 40px;
+}
+
+.critique {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 /* RIGHT */
 .right {
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 .box {
@@ -116,14 +144,21 @@ body {
 
 /* MOBILE */
 @media (max-width: 768px) {
+
     .layout {
         grid-template-columns: 1fr;
     }
+
     .sidebar {
         display: none;
     }
-    .articles {
+
+    .grid-culture {
         grid-template-columns: 1fr;
+    }
+
+    .main {
+        padding: 20px;
     }
 }
 
@@ -134,7 +169,7 @@ body {
 
 <div class="layout">
 
-<!-- MENU -->
+<!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
@@ -154,39 +189,80 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-    <h1><a href="index.html" style="color:white;text-decoration:none;">La Perspective</a></h1>
+    <h1>Culture</h1>
+    <p>Arts, cinéma, musique et idées</p>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
-<h2>Culture</h2>
-
-<div class="hero">
-    <h2>Film à l’affiche</h2>
-    <p>Critique et analyse.</p>
+<!-- HERO -->
+<div class="hero-culture">
+    <h2>Le cinéma en pleine transformation</h2>
+    <p>Streaming, IA et nouvelles pratiques : une révolution culturelle en cours.</p>
 </div>
 
-<div class="articles">
-    <a href="#" class="article">
-        <h3>Musique</h3>
-        <p>Nouveautés à écouter.</p>
-    </a>
+<!-- GRID -->
+<div class="grid-culture">
 
-    <a href="#" class="article">
-        <h3>Littérature</h3>
-        <p>Livres à découvrir.</p>
-    </a>
+    <!-- ARTICLE PRINCIPAL -->
+    <div class="feature">
+        <img src="https://picsum.photos/800/400">
+        <h3>Film événement de la semaine</h3>
+        <p>Analyse critique du dernier film marquant.</p>
+    </div>
+
+    <!-- COLONNE DROITE -->
+    <div class="side-list">
+
+        <div class="side-item">
+            <h4>Musique</h4>
+            <p>Albums à ne pas manquer.</p>
+        </div>
+
+        <div class="side-item">
+            <h4>Littérature</h4>
+            <p>Les livres du moment.</p>
+        </div>
+
+        <div class="side-item">
+            <h4>Exposition</h4>
+            <p>Sorties culturelles à découvrir.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CRITIQUES -->
+<div class="critiques">
+
+    <div class="critique">
+        <h3>Critique : une œuvre marquante</h3>
+        <p>Analyse détaillée et point de vue journalistique.</p>
+    </div>
+
+    <div class="critique">
+        <h3>Entretien avec un artiste</h3>
+        <p>Regards croisés sur la création contemporaine.</p>
+    </div>
+
 </div>
 
 </div>
 
 <!-- RIGHT -->
 <div class="right">
+
     <div class="box">
-        <h3>Débat</h3>
-        <p>Question de la semaine</p>
+        <h3>À découvrir</h3>
+        <ul>
+            <li>Film du moment</li>
+            <li>Album recommandé</li>
+            <li>Livre à lire</li>
+        </ul>
     </div>
+
 </div>
 
 </div>
