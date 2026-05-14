@@ -68,18 +68,13 @@ body {
     background: #0b3d2e;
     color: white;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .header h1 {
     margin: 0;
-}
-
-.header p {
-    margin: 5px 0 0;
-    opacity: 0.8;
 }
 
 /* MAIN */
@@ -89,83 +84,69 @@ body {
 }
 
 /* HERO INTERVIEW */
-.hero-interview {
+.interview-hero {
     background: white;
     padding: 30px;
     margin-bottom: 30px;
 }
 
-.hero-interview img {
+.interview-hero img {
     width: 100%;
-    margin: 20px 0;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
 }
 
+.interview-hero h2 {
+    margin: 0;
+}
+
+/* INFOS */
 .meta {
     color: gray;
-    font-size: 14px;
     margin-bottom: 20px;
 }
 
-/* Q/R */
-.qa {
-    margin-bottom: 20px;
-}
-
+/* INTERVIEW */
 .question {
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-top: 25px;
 }
 
 .answer {
-    margin-left: 10px;
+    margin-top: 10px;
     line-height: 1.6;
 }
 
-/* OTHER INTERVIEWS */
-.articles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+/* CITATION */
+.quote {
+    border-left: 4px solid #0b3d2e;
+    padding-left: 15px;
+    margin: 30px 0;
+    font-style: italic;
+    background: #fafafa;
+    padding: 15px;
 }
 
-.article {
-    background: white;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-    transition: 0.2s;
-}
-
-.article:hover {
-    transform: translateY(-4px);
-}
-
-/* RIGHT COLUMN */
+/* RIGHT */
 .right {
     padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 .box {
     background: white;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 768px) {
-
     .layout {
         grid-template-columns: 1fr;
     }
 
     .sidebar {
         display: none;
-    }
-
-    .articles {
-        grid-template-columns: 1fr;
     }
 
     .main {
@@ -201,53 +182,29 @@ body {
 <!-- HEADER -->
 <div class="header">
     <h1>Interviews</h1>
-    <p>Paroles et analyses</p>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
-<!-- INTERVIEW PRINCIPALE -->
-<div class="hero-interview">
-
-    <h2>Entretien avec un expert</h2>
-    <div class="meta">Par La Perspective — 2026</div>
-
+<div class="interview-hero">
     <img src="https://picsum.photos/800/300">
-
-    <div class="qa">
-        <div class="question">Pourquoi ce sujet est-il important ?</div>
-        <div class="answer">Parce qu’il touche directement la société et ses évolutions actuelles...</div>
-    </div>
-
-    <div class="qa">
-        <div class="question">Quels sont les enjeux ?</div>
-        <div class="answer">Ils sont multiples, notamment économiques et sociaux...</div>
-    </div>
-
-    <div class="qa">
-        <div class="question">Que peut-on attendre pour l’avenir ?</div>
-        <div class="answer">Des transformations importantes dans les années à venir...</div>
-    </div>
-
+    <h2>Entretien avec un acteur clé de l’actualité</h2>
+    <div class="meta">Propos recueillis par La Perspective — 2026</div>
 </div>
 
-<!-- AUTRES INTERVIEWS -->
-<h3>Autres interviews</h3>
+<p class="question">Pourquoi ce sujet est-il important aujourd’hui ?</p>
+<p class="answer">Réponse développée avec des arguments détaillés...</p>
 
-<div class="articles">
-
-    <a href="#" class="article">
-        <h4>Interview politique</h4>
-        <p>Analyse et échange.</p>
-    </a>
-
-    <a href="#" class="article">
-        <h4>Interview culturelle</h4>
-        <p>Regards d’artistes.</p>
-    </a>
-
+<div class="quote">
+    “Une citation forte qui résume la pensée de l’interviewé.”
 </div>
+
+<p class="question">Quels sont les enjeux principaux ?</p>
+<p class="answer">Analyse approfondie et explication claire...</p>
+
+<p class="question">Comment voyez-vous l’avenir ?</p>
+<p class="answer">Projection et réflexion stratégique...</p>
 
 </div>
 
@@ -255,8 +212,11 @@ body {
 <div class="right">
 
     <div class="box">
-        <h3>À propos</h3>
-        <p>Interviews réalisées par La Perspective.</p>
+        <h3>Autres interviews</h3>
+        <ul>
+            <li>Interview précédente</li>
+            <li>Portrait à lire</li>
+        </ul>
     </div>
 
 </div>
