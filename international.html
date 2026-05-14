@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>International - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -29,29 +29,38 @@ body {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 22px;
+    color: white !important;
+    text-decoration: none;
+    display: block;
 }
 
-/* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 .menu a {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
+    padding: 6px 0;
 }
 
 .menu a:hover {
-    opacity: 0.7;
+    padding-left: 8px;
+    border-left: 2px solid white;
 }
 
 /* HEADER */
@@ -62,56 +71,77 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-.header h1 {
-    margin: 0;
-}
+.header h1 { margin: 0; }
 
 /* MAIN */
 .main {
-    padding: 30px;
+    padding: 40px;
 }
 
+/* HERO INTERNATIONAL */
 .hero {
     background: white;
-    padding: 25px;
-    margin-bottom: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
 }
 
 .hero h2 {
+    margin-top: 0;
     font-size: 28px;
 }
 
-/* ARTICLES */
-.articles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+/* CARTE */
+.map {
+    margin-top: 20px;
 }
 
-.article {
-    display: block;
+.map img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* SECTIONS MONDE */
+.sections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.region {
     background: white;
     padding: 20px;
+}
+
+.region h3 {
+    margin-top: 0;
+}
+
+/* ARTICLES */
+.article {
+    margin-top: 10px;
+    display: block;
     text-decoration: none;
     color: black;
-    transition: 0.2s;
 }
 
 .article:hover {
-    transform: translateY(-3px);
+    text-decoration: underline;
 }
 
 /* RIGHT */
 .right {
-    padding: 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .box {
     background: white;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
 /* MOBILE */
@@ -122,7 +152,7 @@ body {
     .sidebar {
         display: none;
     }
-    .articles {
+    .sections {
         grid-template-columns: 1fr;
     }
 }
@@ -134,7 +164,7 @@ body {
 
 <div class="layout">
 
-<!-- MENU -->
+<!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
@@ -154,39 +184,65 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-    <h1><a href="index.html" style="color:white;text-decoration:none;">La Perspective</a></h1>
+    <h1>International</h1>
+    <p>Comprendre les enjeux mondiaux</p>
 </div>
 
 <!-- MAIN -->
-<<div class="main">
+<div class="main">
 
-<h2>International</h2>
+    <div class="hero">
+        <h2>Crise internationale majeure</h2>
+        <p>Analyse des tensions actuelles entre plusieurs puissances mondiales.</p>
 
-<div class="articles">
-    <a href="#" class="article">
-        <h3>Europe</h3>
-        <p>Situation actuelle.</p>
-    </a>
+        <div class="map">
+            <img src="https://picsum.photos/900/400" alt="Carte du monde">
+        </div>
+    </div>
 
-    <a href="#" class="article">
-        <h3>États-Unis</h3>
-        <p>Actualité politique.</p>
-    </a>
+    <div class="sections">
 
-    <a href="#" class="article">
-        <h3>Asie</h3>
-        <p>Évolutions économiques.</p>
-    </a>
-</div>
+        <div class="region">
+            <h3>Europe</h3>
+            <a href="#" class="article">Tensions politiques en Europe de l’Est</a>
+            <a href="#" class="article">Réformes économiques en Allemagne</a>
+        </div>
+
+        <div class="region">
+            <h3>Amérique</h3>
+            <a href="#" class="article">Élections aux États-Unis</a>
+            <a href="#" class="article">Relations Amérique latine</a>
+        </div>
+
+        <div class="region">
+            <h3>Asie</h3>
+            <a href="#" class="article">Croissance économique en Chine</a>
+            <a href="#" class="article">Tensions en mer de Chine</a>
+        </div>
+
+        <div class="region">
+            <h3>Afrique & Moyen-Orient</h3>
+            <a href="#" class="article">Situation politique au Sahel</a>
+            <a href="#" class="article">Enjeux énergétiques</a>
+        </div>
+
+    </div>
 
 </div>
 
 <!-- RIGHT -->
 <div class="right">
+
     <div class="box">
-        <h3>Débat</h3>
-        <p>Question de la semaine</p>
+        <h3>Repères</h3>
+        <p>Les grandes zones de tension mondiale.</p>
     </div>
+
+    <div class="box">
+        <h3>À suivre</h3>
+        <p>Les sujets internationaux majeurs à surveiller.</p>
+    </div>
+
 </div>
 
 </div>
