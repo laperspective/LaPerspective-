@@ -9,6 +9,7 @@
 
 <style>
 
+/* BASE */
 body {
     margin: 0;
     font-family: Georgia, serif;
@@ -28,22 +29,33 @@ body {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 22px;
+    color: white !important;
+    text-decoration: none;
+    display: block;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .menu a {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
 }
 
 /* HEADER */
@@ -56,27 +68,43 @@ body {
     justify-content: center;
 }
 
-/* MAIN */
-.main {
-    padding: 20px;
+.header h1 {
+    margin: 0;
 }
 
-/* GRILLE NECROLOGIE */
+/* MAIN */
+.main {
+    padding: 40px;
+}
+
+/* TITRE */
+.section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* GRID */
 .necro-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
+    gap: 25px;
 }
 
-/* CARTE */
+/* CARD */
 .necro-card {
     background: white;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    transition: 0.2s;
 }
 
-/* NOM */
+.necro-card:hover {
+    transform: translateY(-5px);
+}
+
+/* NAME */
 .necro-name {
     background: #111;
     color: white;
@@ -88,21 +116,23 @@ body {
 /* IMAGE */
 .necro-img img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
 }
 
-/* INFOS */
+/* INFO */
 .necro-info {
-    padding: 10px;
+    padding: 15px;
     font-size: 14px;
+    line-height: 1.6;
 }
 
-.necro-info p {
-    margin: 5px 0;
+.necro-info strong {
+    display: block;
+    margin-top: 5px;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 1200px) {
     .necro-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -110,7 +140,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
     .layout {
         grid-template-columns: 1fr;
     }
@@ -163,37 +192,36 @@ body {
 <!-- MAIN -->
 <div class="main">
 
+<div class="section-title">Hommages récents</div>
+
 <div class="necro-grid">
 
-    <!-- CARTE 1 -->
+    <!-- PERSONNE -->
     <div class="necro-card">
         <div class="necro-name">Nom de la personne</div>
         <div class="necro-img">
             <img src="https://picsum.photos/300/200">
         </div>
         <div class="necro-info">
-            <p><strong>Naissance :</strong> 1940</p>
-            <p><strong>Décès :</strong> 2025</p>
-            <p><strong>Âge :</strong> 85 ans</p>
-            <p><strong>Cause :</strong> Naturelle</p>
+            <strong>Naissance :</strong> 1945  
+            <strong>Décès :</strong> 2026  
+            <strong>Âge :</strong> 81 ans  
+            <strong>Cause :</strong> Maladie  
         </div>
     </div>
 
-    <!-- CARTE 2 -->
     <div class="necro-card">
         <div class="necro-name">Nom de la personne</div>
         <div class="necro-img">
             <img src="https://picsum.photos/301/200">
         </div>
         <div class="necro-info">
-            <p><strong>Naissance :</strong> 1955</p>
-            <p><strong>Décès :</strong> 2026</p>
-            <p><strong>Âge :</strong> 71 ans</p>
-            <p><strong>Cause :</strong> Maladie</p>
+            <strong>Naissance :</strong> 1960  
+            <strong>Décès :</strong> 2026  
+            <strong>Âge :</strong> 66 ans  
+            <strong>Cause :</strong> Accident  
         </div>
     </div>
-
-    <!-- DUPLIQUE AUTANT QUE TU VEUX -->
 
 </div>
 
