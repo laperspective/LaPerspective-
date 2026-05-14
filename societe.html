@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Société - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -19,7 +19,7 @@ body {
 /* LAYOUT */
 .layout {
     display: grid;
-    grid-template-columns: 240px 1fr 300px;
+    grid-template-columns: 240px 1fr 320px;
     grid-template-rows: 90px 1fr;
     min-height: 100vh;
 }
@@ -29,29 +29,37 @@ body {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 22px;
+    color: white !important;
+    text-decoration: none;
+    display: block;
 }
 
-/* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 .menu a {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
 }
 
 .menu a:hover {
-    opacity: 0.7;
+    padding-left: 8px;
+    border-left: 2px solid white;
 }
 
 /* HEADER */
@@ -60,69 +68,85 @@ body {
     background: #0b3d2e;
     color: white;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-}
-
-.header h1 {
-    margin: 0;
+    align-items: center;
 }
 
 /* MAIN */
 .main {
-    padding: 30px;
+    padding: 40px;
 }
 
+/* HERO */
 .hero {
     background: white;
-    padding: 25px;
-    margin-bottom: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
 }
 
 .hero h2 {
-    font-size: 28px;
+    margin-top: 0;
+    font-size: 30px;
+}
+
+/* GRID ARTICLES */
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
 }
 
 /* ARTICLES */
-.articles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
 .article {
     display: block;
     background: white;
     padding: 20px;
     text-decoration: none;
     color: black;
-    transition: 0.2s;
 }
 
 .article:hover {
     transform: translateY(-3px);
 }
 
+/* LISTE ARTICLES */
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 /* RIGHT */
 .right {
-    padding: 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .box {
     background: white;
     padding: 20px;
-    margin-bottom: 20px;
+}
+
+/* DEBAT */
+.debat {
+    border-left: 4px solid #0b3d2e;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
+
     .layout {
         grid-template-columns: 1fr;
     }
+
     .sidebar {
         display: none;
     }
-    .articles {
+
+    .grid {
         grid-template-columns: 1fr;
     }
 }
@@ -134,7 +158,7 @@ body {
 
 <div class="layout">
 
-<!-- MENU -->
+<!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
@@ -154,38 +178,61 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-    <h1><a href="index.html" style="color:white;text-decoration:none;">La Perspective</a></h1>
+    <h1>Société</h1>
+    <p>Regards sur les évolutions sociales</p>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
-<h2>Société & débats</h2>
+    <!-- HERO -->
+    <div class="hero">
+        <h2>Les jeunes face aux réseaux sociaux</h2>
+        <p>Une analyse des usages et des impacts sur la société actuelle.</p>
+    </div>
 
-<div class="box">
-    <h3>Question du moment</h3>
-    <p>Faut-il limiter l’usage des réseaux sociaux chez les jeunes ?</p>
+    <!-- GRID -->
+    <div class="grid">
+
+        <!-- ARTICLE PRINCIPAL -->
+        <a href="#" class="article">
+            <h3>Éducation et numérique</h3>
+            <p>Comment l’école s’adapte aux nouvelles technologies.</p>
+        </a>
+
+        <!-- COLONNE ARTICLES -->
+        <div class="list">
+
+            <a href="#" class="article">
+                <h4>Vie quotidienne</h4>
+                <p>Les nouvelles habitudes sociales.</p>
+            </a>
+
+            <a href="#" class="article">
+                <h4>Travail</h4>
+                <p>Évolution du monde professionnel.</p>
+            </a>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="articles">
-    <a href="#" class="article">
-        <h3>Éducation</h3>
-        <p>Les enjeux actuels.</p>
-    </a>
-
-    <a href="#" class="article">
-        <h3>Mode de vie</h3>
-        <p>Évolutions sociales.</p>
-    </a>
-</div>
-
-</div>
 <!-- RIGHT -->
 <div class="right">
-    <div class="box">
-        <h3>Débat</h3>
-        <p>Question de la semaine</p>
+
+    <div class="box debat">
+        <h3>Débat de la semaine</h3>
+        <p>Faut-il limiter les réseaux sociaux chez les jeunes ?</p>
+        <a href="debat.html">Participer →</a>
     </div>
+
+    <div class="box">
+        <h3>Analyse rapide</h3>
+        <p>Les transformations sociales s’accélèrent avec le numérique.</p>
+    </div>
+
 </div>
 
 </div>
