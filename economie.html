@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Économie - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -19,7 +20,7 @@ body {
 /* LAYOUT */
 .layout {
     display: grid;
-    grid-template-columns: 240px 1fr 300px;
+    grid-template-columns: 240px 1fr 320px;
     grid-template-rows: 90px 1fr;
     min-height: 100vh;
 }
@@ -29,29 +30,37 @@ body {
     grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 22px;
+    color: white !important;
+    text-decoration: none;
+    display: block;
 }
 
-/* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 .menu a {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     color: white;
     text-decoration: none;
-    margin: 10px 0;
 }
 
 .menu a:hover {
-    opacity: 0.7;
+    padding-left: 8px;
+    border-left: 2px solid white;
 }
 
 /* HEADER */
@@ -60,38 +69,35 @@ body {
     background: #0b3d2e;
     color: white;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-}
-
-.header h1 {
-    margin: 0;
+    align-items: center;
 }
 
 /* MAIN */
 .main {
-    padding: 30px;
+    padding: 40px;
 }
 
+/* HERO */
 .hero {
     background: white;
-    padding: 25px;
-    margin-bottom: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
 }
 
 .hero h2 {
-    font-size: 28px;
+    margin-top: 0;
 }
 
 /* ARTICLES */
 .articles {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 25px;
 }
 
 .article {
-    display: block;
     background: white;
     padding: 20px;
     text-decoration: none;
@@ -100,28 +106,39 @@ body {
 }
 
 .article:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+}
+
+/* GRAPH */
+.chart-box {
+    background: white;
+    padding: 20px;
+    margin: 30px 0;
 }
 
 /* RIGHT */
 .right {
-    padding: 20px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .box {
     background: white;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .layout {
         grid-template-columns: 1fr;
     }
+
     .sidebar {
         display: none;
     }
+
     .articles {
         grid-template-columns: 1fr;
     }
@@ -134,7 +151,7 @@ body {
 
 <div class="layout">
 
-<!-- MENU -->
+<!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
@@ -154,41 +171,86 @@ body {
 
 <!-- HEADER -->
 <div class="header">
-    <h1><a href="index.html" style="color:white;text-decoration:none;">La Perspective</a></h1>
+    <h1>Économie</h1>
+    <p>Comprendre les dynamiques financières</p>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
-<h2>Économie</h2>
+    <div class="hero">
+        <h2>Inflation : une pression persistante</h2>
+        <p>Analyse des dernières tendances économiques en Europe.</p>
+    </div>
 
-<div class="hero">
-    <h2>Inflation en hausse</h2>
-    <p>Analyse rapide de la situation économique.</p>
+    <!-- GRAPH -->
+    <div class="chart-box">
+        <h3>Évolution des prix</h3>
+        <canvas id="graph"></canvas>
+    </div>
+
+    <!-- ARTICLES -->
+    <div class="articles">
+
+        <a href="#" class="article">
+            <h3>Marchés financiers</h3>
+            <p>Les indices boursiers reculent cette semaine.</p>
+        </a>
+
+        <a href="#" class="article">
+            <h3>Pouvoir d’achat</h3>
+            <p>Une inquiétude croissante chez les ménages.</p>
+        </a>
+
+        <a href="#" class="article">
+            <h3>Entreprises</h3>
+            <p>Les grandes sociétés face à de nouveaux défis.</p>
+        </a>
+
+        <a href="#" class="article">
+            <h3>Cryptomonnaies</h3>
+            <p>Un marché toujours instable.</p>
+        </a>
+
+    </div>
+
 </div>
 
-<div class="articles">
-    <a href="#" class="article">
-        <h3>Marchés financiers</h3>
-        <p>Évolution récente.</p>
-    </a>
-
-    <a href="#" class="article">
-        <h3>Pouvoir d’achat</h3>
-        <p>Impact sur les ménages.</p>
-    </a>
-</div>
-
-</div>
 <!-- RIGHT -->
 <div class="right">
+
     <div class="box">
-        <h3>Débat</h3>
-        <p>Question de la semaine</p>
+        <h3>Marchés en direct</h3>
+        <iframe src="https://s.tradingview.com/widgetembed/?symbol=NASDAQ:AAPL" width="100%" height="250"></iframe>
     </div>
+
+    <div class="box">
+        <h3>Chiffres clés</h3>
+        <ul>
+            <li>Inflation : 4.2%</li>
+            <li>Chômage : 7.1%</li>
+            <li>Croissance : 1.3%</li>
+        </ul>
+    </div>
+
 </div>
 
 </div>
+
+<script>
+const ctx = document.getElementById('graph');
+
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai'],
+        datasets: [{
+            label: 'Inflation',
+            data: [2, 3, 3.5, 4, 4.2]
+        }]
+    }
+});
+</script>
 
 </body>
 </html>
