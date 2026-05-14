@@ -21,6 +21,7 @@ body {
     display: grid;
     grid-template-columns: 240px 1fr;
     grid-template-rows: 90px 1fr;
+    min-height: 100vh;
 }
 
 /* SIDEBAR */
@@ -29,6 +30,8 @@ body {
     background: #0b3d2e;
     color: white;
     padding: 25px 20px;
+    position: relative;
+    z-index: 2000;
 }
 
 .logo {
@@ -37,7 +40,7 @@ body {
     text-align: center;
     margin-bottom: 30px;
     font-size: 22px;
-    color: white !important;
+    color: white;
     text-decoration: none;
     display: block;
 }
@@ -46,7 +49,7 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 18px; /* 🔥 ESPACEMENT */
+    gap: 18px;
 }
 
 .menu a {
@@ -56,7 +59,6 @@ body {
     color: white;
     text-decoration: none;
     padding: 6px 0;
-    transition: 0.2s;
 }
 
 .menu a:hover {
@@ -66,13 +68,14 @@ body {
 
 /* HEADER */
 .header {
-    grid-column: 2 / 4;
+    grid-column: 2;
     background: #0b3d2e;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 }
 
 .header h1 {
@@ -90,7 +93,6 @@ body {
     padding: 40px;
     max-width: 900px;
     margin: auto;
-};
 }
 
 /* HERO */
@@ -118,6 +120,7 @@ body {
     padding: 20px;
     text-decoration: none;
     color: black;
+    border: 1px solid #eee;
     transition: 0.2s;
 }
 
@@ -125,18 +128,12 @@ body {
     transform: translateY(-4px);
 }
 
-/* RIGHT COLUMN */
+/* RIGHT (DESKTOP ONLY) */
 .right {
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: none;
 }
 
-.box {
-    background: white;
-    padding: 20px;
-}
+/* MENU MOBILE */
 .menu-btn {
     display: none;
     position: absolute;
@@ -144,6 +141,7 @@ body {
     top: 25px;
     font-size: 26px;
     color: white;
+    cursor: pointer;
     z-index: 3000;
 }
 
@@ -153,34 +151,15 @@ body {
     height: 100%;
     background: rgba(0,0,0,0.4);
     display: none;
+    z-index: 1500;
 }
 
 .overlay.active {
     display: block;
 }
-    .article {
-    border: 1px solid #eee;
-}
+
 /* MOBILE */
 @media (max-width: 768px) {
-
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        display: none;
-    }
-
-    .articles {
-        grid-template-columns: 1fr;
-    }
-
-    .main {
-        padding: 20px;
-    }
-}
-    @media (max-width: 768px) {
 
     .layout {
         grid-template-columns: 1fr;
@@ -202,12 +181,24 @@ body {
     .menu-btn {
         display: block;
     }
+
+    .articles {
+        grid-template-columns: 1fr;
+    }
+
+    .main {
+        padding: 20px;
+    }
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- MENU MOBILE -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="toggleMenu()"></div>
 
 <div class="layout">
 
@@ -240,53 +231,36 @@ body {
 
     <div class="hero">
         <h2>Grand titre principal</h2>
-        <p>Résumé de l’actualité majeure du jour. Accroche claire et sérieuse.</p>
+        <p>Résumé de l’actualité majeure du jour.</p>
     </div>
 
     <div class="articles">
-
         <a href="article1.html" class="article">
             <h3>Article 1</h3>
-            <p>Résumé court de l’article.</p>
+            <p>Résumé court.</p>
         </a>
 
         <a href="article2.html" class="article">
             <h3>Article 2</h3>
-            <p>Résumé court de l’article.</p>
+            <p>Résumé court.</p>
         </a>
 
         <a href="article3.html" class="article">
             <h3>Article 3</h3>
-            <p>Résumé court de l’article.</p>
+            <p>Résumé court.</p>
         </a>
 
         <a href="article4.html" class="article">
             <h3>Article 4</h3>
-            <p>Résumé court de l’article.</p>
+            <p>Résumé court.</p>
         </a>
-
-    </div>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-
-</div>
-
-<!-- RIGHT -->
-<div class="right">
-
-    <div class="box">
-        <h3>Les plus lus</h3>
-        <ul>
-            <li>Article 1</li>
-            <li>Article 2</li>
-            <li>Article 3</li>
-        </ul>
     </div>
 
 </div>
 
 </div>
-    <script>
+
+<script>
 function toggleMenu() {
     document.querySelector(".sidebar").classList.toggle("active");
     document.querySelector(".overlay").classList.toggle("active");
