@@ -7,28 +7,23 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-</div>
 <style>
 
-/* BASE */
+/* BASE IDENTIQUE */
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
 }
 
-/* LAYOUT */
-.layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    grid-template-rows: 90px 1fr;
-}
 /* SIDEBAR */
 .sidebar {
-    grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
     padding: 25px 20px;
+    position: fixed;
+    width: 240px;
+    height: 100%;
 }
 
 .logo {
@@ -37,11 +32,12 @@ body {
     text-align: center;
     margin-bottom: 30px;
     font-size: 22px;
-    color: white !important;
     text-decoration: none;
+    color: white;
     display: block;
 }
 
+/* MENU */
 .menu {
     display: flex;
     flex-direction: column;
@@ -49,105 +45,90 @@ body {
 }
 
 .menu a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
     color: white;
     text-decoration: none;
 }
 
-/* HEADER */
+/* CONTENT */
+.content {
+    margin-left: 240px;
+}
+
+/* HEADER CULTURE */
 .header {
-    grid-column: 2 / 4;
-    background: #0b3d2e;
+    background: linear-gradient(135deg, #2c1a4d, #6b3fa0);
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.header h1 { margin: 0; }
-.header p { opacity: 0.8; }
-
-/* MAIN */
-.main {
     padding: 40px;
-    max-width: 900px;
-    margin: auto;
-}
+    text-align: center;
 }
 
 /* HERO CULTURE */
-.hero-culture {
-    background: black;
-    color: white;
-    padding: 40px;
-    margin-bottom: 30px;
+.culture-hero {
+    position: relative;
+    margin: 30px auto;
+    max-width: 900px;
 }
 
-.hero-culture h2 {
-    font-size: 32px;
-}
-
-/* GRID ARTICLES */
-.grid-culture {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
-}
-
-/* GRAND ARTICLE */
-.feature {
-    background: white;
-    padding: 20px;
-}
-
-.feature img {
+.culture-hero img {
     width: 100%;
-    height: 250px;
+    height: 350px;
     object-fit: cover;
-    margin-bottom: 15px;
 }
 
-/* LISTE */
-.side-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.side-item {
-    background: white;
+.culture-hero-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0,0,0,0.6);
     padding: 15px;
 }
 
-/* SECTION CRITIQUES */
-.critiques {
-    margin-top: 40px;
+/* GRID CULTURE */
+.culture-grid {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 20px;
 }
 
+.culture-card {
+    background: white;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.culture-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.culture-card:hover {
+    transform: scale(1.02);
+}
+
+.culture-card-content {
+    padding: 15px;
+}
+
+/* SECTION CRITIQUE */
 .critique {
+    max-width: 900px;
+    margin: 40px auto;
     background: white;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 30px;
+    border-left: 5px solid #6b3fa0;
 }
 
-/* RIGHT */
-.right {
-    padding: 30px 20px;
-}
-
-.box {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-    .menu-btn {
+/* MOBILE */
+.menu-btn {
     display: none;
-    position: absolute;
+    position: fixed;
+    top: 20px;
     left: 15px;
-    top: 25px;
     font-size: 26px;
     color: white;
     z-index: 3000;
@@ -164,41 +145,11 @@ body {
 .overlay.active {
     display: block;
 }
-    .article {
-    border: 1px solid #eee;
-}
 
-/* MOBILE */
 @media (max-width: 768px) {
 
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
     .sidebar {
-        display: none;
-    }
-
-    .grid-culture {
-        grid-template-columns: 1fr;
-    }
-
-
-}
-    }
-}
-    @media (max-width: 768px) {
-
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        position: fixed;
         left: -260px;
-        top: 0;
-        width: 240px;
-        height: 100%;
         transition: 0.3s;
     }
 
@@ -206,118 +157,96 @@ body {
         left: 0;
     }
 
+    .content {
+        margin-left: 0;
+    }
+
     .menu-btn {
         display: block;
     }
+
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .culture-hero img {
+        height: 250px;
+    }
 }
-    
 
 </style>
 </head>
 
 <body>
 
-<div class="layout">
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="toggleMenu()"></div>
 
 <!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+        <a href="actu.html">Actualité</a>
+        <a href="societe.html">Société</a>
+        <a href="international.html">International</a>
+        <a href="culture.html">Culture</a>
+        <a href="analyses.html">Analyses</a>
+        <a href="local.html">Vie locale</a>
+        <a href="economie.html">Économie</a>
+        <a href="debat.html">Débat</a>
+        <a href="interviews.html">Interviews</a>
+        <a href="necrologie.html">Nécrologie</a>
     </div>
 </div>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>Culture</h1>
-    <p>Arts, cinéma, musique et idées</p>
-</div>
+<!-- CONTENT -->
+<div class="content">
 
-<!-- MAIN -->
-<div class="main">
-
-<!-- HERO -->
-<div class="hero-culture">
-    <h2>Le cinéma en pleine transformation</h2>
-    <p>Streaming, IA et nouvelles pratiques : une révolution culturelle en cours.</p>
-</div>
-
-<!-- GRID -->
-<div class="grid-culture">
-
-    <!-- ARTICLE PRINCIPAL -->
-    <div class="feature">
-        <img src="https://picsum.photos/800/400">
-        <h3>Film événement de la semaine</h3>
-        <p>Analyse critique du dernier film marquant.</p>
+    <div class="header">
+        <h1>Culture</h1>
+        <p>Arts, cinéma, musique et idées</p>
     </div>
 
-    <!-- COLONNE DROITE -->
-    <div class="side-list">
+    <!-- HERO -->
+    <div class="culture-hero">
+        <img src="https://picsum.photos/900/400">
+        <div class="culture-hero-text">
+            <h2>Film événement de la semaine</h2>
+            <p>Analyse et critique du moment</p>
+        </div>
+    </div>
 
-        <div class="side-item">
-            <h4>Musique</h4>
-            <p>Albums à ne pas manquer.</p>
+    <!-- ARTICLES -->
+    <div class="culture-grid">
+
+        <div class="culture-card">
+            <img src="https://picsum.photos/400/200">
+            <div class="culture-card-content">
+                <h3>Musique</h3>
+                <p>Les sorties à ne pas manquer</p>
+            </div>
         </div>
 
-        <div class="side-item">
-            <h4>Littérature</h4>
-            <p>Les livres du moment.</p>
-        </div>
-
-        <div class="side-item">
-            <h4>Exposition</h4>
-            <p>Sorties culturelles à découvrir.</p>
+        <div class="culture-card">
+            <img src="https://picsum.photos/401/200">
+            <div class="culture-card-content">
+                <h3>Littérature</h3>
+                <p>Les livres du moment</p>
+            </div>
         </div>
 
     </div>
 
-</div>
-
-<!-- CRITIQUES -->
-<div class="critiques">
-
+    <!-- CRITIQUE -->
     <div class="critique">
-        <h3>Critique : une œuvre marquante</h3>
-        <p>Analyse détaillée et point de vue journalistique.</p>
-    </div>
-
-    <div class="critique">
-        <h3>Entretien avec un artiste</h3>
-        <p>Regards croisés sur la création contemporaine.</p>
+        <h2>Critique</h2>
+        <p>Analyse approfondie d’une œuvre récente. Style rédactionnel plus long et argumenté.</p>
     </div>
 
 </div>
 
-</div>
-
-<!-- RIGHT -->
-<div class="right">
-
-    <div class="box">
-        <h3>À découvrir</h3>
-        <ul>
-            <li>Film du moment</li>
-            <li>Album recommandé</li>
-            <li>Livre à lire</li>
-        </ul>
-    </div>
-
-</div>
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-</div>
-    <script>
+<script>
 function toggleMenu() {
     document.querySelector(".sidebar").classList.toggle("active");
     document.querySelector(".overlay").classList.toggle("active");
