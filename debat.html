@@ -211,14 +211,21 @@ button {
 </div>
 
 <!-- FORM -->
-<div class="form">
-    <h3>Donne ton avis</h3>
+<form action="https://formspree.io/f/xqenrzaw" method="POST">
 
-    <input type="text" placeholder="Ton prénom">
-    <textarea placeholder="Ton opinion..."></textarea>
+    <input type="text" name="nom" placeholder="Ton prénom" required>
 
-    <button>Envoyer</button>
-</div>
+    <select name="position" required>
+        <option value="">Ton avis</option>
+        <option value="pour">Pour</option>
+        <option value="contre">Contre</option>
+    </select>
+
+    <textarea name="message" placeholder="Explique ton opinion..." required></textarea>
+
+    <button type="submit">Envoyer</button>
+
+</form>
 
 </div>
 
