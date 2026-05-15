@@ -16,20 +16,14 @@ body {
     background: #f5f5f5;
 }
 
-/* LAYOUT */
-.layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    grid-template-rows: 90px 1fr;
-}
-}
-
-/* SIDEBAR */
+/* SIDEBAR IDENTIQUE */
 .sidebar {
-    grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
     padding: 25px 20px;
+    position: fixed;
+    width: 240px;
+    height: 100%;
 }
 
 .logo {
@@ -37,8 +31,7 @@ body {
     padding: 12px;
     text-align: center;
     margin-bottom: 30px;
-    font-size: 22px;
-    color: white !important;
+    color: white;
     text-decoration: none;
     display: block;
 }
@@ -50,154 +43,81 @@ body {
 }
 
 .menu a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
     color: white;
     text-decoration: none;
 }
 
-.menu a:hover {
-    padding-left: 8px;
-    border-left: 2px solid white;
+/* CONTENT */
+.content {
+    margin-left: 240px;
 }
 
 /* HEADER */
 .header {
-    grid-column: 2 / 4;
-    background: #0b3d2e;
+    background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    padding: 30px;
+    text-align: center;
 }
 
-.header h1 {
-    margin: 0;
-}
-
-/* MAIN */
-.main {
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
-}
-}
-
-/* HERO INTERVIEW */
-.interview-hero {
+/* INTERVIEW */
+.interview {
+    max-width: 800px;
+    margin: 40px auto;
     background: white;
     padding: 30px;
-    margin-bottom: 30px;
 }
 
-.interview-hero img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    margin-bottom: 20px;
+/* TITRE */
+.interview h1 {
+    margin-top: 0;
 }
 
-.interview-hero h2 {
-    margin: 0;
-}
-
-/* INFOS */
+/* META */
 .meta {
     color: gray;
     margin-bottom: 20px;
 }
 
-/* INTERVIEW */
-.question {
-    font-weight: bold;
-    margin-top: 25px;
+/* IMAGE */
+.photo img {
+    width: 100%;
+    margin: 20px 0;
 }
 
-.answer {
+/* QUESTIONS */
+.question {
+    font-weight: bold;
+    margin-top: 30px;
+    color: #0b3d2e;
+}
+
+/* RÉPONSES */
+.reponse {
     margin-top: 10px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* CITATION */
 .quote {
-    border-left: 4px solid #0b3d2e;
-    padding-left: 15px;
     margin: 30px 0;
+    padding-left: 15px;
+    border-left: 4px solid #0b3d2e;
     font-style: italic;
-    background: #fafafa;
-    padding: 15px;
 }
 
-/* RIGHT */
-.right {
-    padding: 30px 20px;
-}
-
-.box {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-    .menu-btn {
-    display: none;
-    position: absolute;
-    left: 15px;
-    top: 25px;
-    font-size: 26px;
-    color: white;
-    z-index: 3000;
-}
-
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: none;
-}
-
-.overlay.active {
-    display: block;
-}
-    .article {
-    border: 1px solid #eee;
-}
 /* MOBILE */
 @media (max-width: 768px) {
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
     .sidebar {
         display: none;
     }
 
-    .main {
+    .content {
+        margin-left: 0;
+    }
+
+    .interview {
         padding: 20px;
-    }
-}@media (max-width: 768px) {
-
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        position: fixed;
-        left: -260px;
-        top: 0;
-        width: 240px;
-        height: 100%;
-        transition: 0.3s;
-    }
-
-    .sidebar.active {
-        left: 0;
-    }
-
-    .menu-btn {
-        display: block;
     }
 }
 
@@ -206,75 +126,63 @@ body {
 
 <body>
 
-<div class="layout">
-
 <!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+        <a href="actu.html">Actualité</a>
+        <a href="societe.html">Société</a>
+        <a href="international.html">International</a>
+        <a href="culture.html">Culture</a>
+        <a href="analyses.html">Analyses</a>
+        <a href="local.html">Vie locale</a>
+        <a href="economie.html">Économie</a>
+        <a href="debat.html">Débat</a>
+        <a href="interviews.html">Interviews</a>
+        <a href="necrologie.html">Nécrologie</a>
     </div>
 </div>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>Interviews</h1>
-</div>
+<!-- CONTENT -->
+<div class="content">
 
-<!-- MAIN -->
-<div class="main">
+    <div class="header">
+        <h1>Interview</h1>
+        <p>Rencontre avec une personnalité</p>
+    </div>
 
-<div class="interview-hero">
-    <img src="https://picsum.photos/800/300">
-    <h2>Entretien avec un acteur clé de l’actualité</h2>
-    <div class="meta">Propos recueillis par La Perspective — 2026</div>
-</div>
+    <div class="interview">
 
-<p class="question">Pourquoi ce sujet est-il important aujourd’hui ?</p>
-<p class="answer">Réponse développée avec des arguments détaillés...</p>
+        <h1>Nom de la personne interviewée</h1>
+        <div class="meta">Par Ton Nom — 2026</div>
 
-<div class="quote">
-    “Une citation forte qui résume la pensée de l’interviewé.”
-</div>
+        <div class="photo">
+            <img src="https://picsum.photos/800/400">
+        </div>
 
-<p class="question">Quels sont les enjeux principaux ?</p>
-<p class="answer">Analyse approfondie et explication claire...</p>
+        <div class="quote">
+            “Phrase marquante de l’interview.”
+        </div>
 
-<p class="question">Comment voyez-vous l’avenir ?</p>
-<p class="answer">Projection et réflexion stratégique...</p>
+        <div class="question">Pourquoi avez-vous lancé ce projet ?</div>
+        <div class="reponse">
+            Réponse développée avec du détail et du contexte.
+        </div>
 
-</div>
+        <div class="question">Quels sont vos objectifs ?</div>
+        <div class="reponse">
+            Explication claire et structurée.
+        </div>
 
-<!-- RIGHT -->
-<div class="right">
+        <div class="question">Un message pour les jeunes ?</div>
+        <div class="reponse">
+            Réponse inspirante.
+        </div>
 
-    <div class="box">
-        <h3>Autres interviews</h3>
-        <ul>
-            <li>Interview précédente</li>
-            <li>Portrait à lire</li>
-        </ul>
     </div>
 
 </div>
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-</div>
-<script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-    document.querySelector(".overlay").classList.toggle("active");
-}
-</script>
+
 </body>
 </html>
