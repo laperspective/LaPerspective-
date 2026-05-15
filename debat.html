@@ -6,7 +6,6 @@
 <title>Débat - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -17,7 +16,7 @@ body {
     background: #f5f5f5;
 }
 
-/* SIDEBAR (IDENTIQUE) */
+/* SIDEBAR */
 .sidebar {
     background: #0b3d2e;
     color: white;
@@ -34,6 +33,7 @@ body {
     margin-bottom: 30px;
     color: white;
     text-decoration: none;
+    display: block;
 }
 
 /* CONTENT */
@@ -45,67 +45,104 @@ body {
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 40px;
+    padding: 40px 20px;
     text-align: center;
 }
 
 /* QUESTION */
 .question {
-    max-width: 900px;
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* POUR / CONTRE */
+.debate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.block {
+    background: white;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.pour {
+    border-top: 4px solid #2e7d32;
+}
+
+.contre {
+    border-top: 4px solid #c62828;
+}
+
+/* GRAPH */
+.graph {
+    max-width: 600px;
     margin: 40px auto;
     background: white;
-    padding: 40px;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.question h2 {
-    font-size: 28px;
+.bar {
+    height: 30px;
+    margin: 10px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 }
 
-/* GRAPHIQUE */
-.chart-container {
-    max-width: 500px;
-    margin: 40px auto;
+.pour-bar {
+    background: #2e7d32;
+    width: 60%;
+}
+
+.contre-bar {
+    background: #c62828;
+    width: 40%;
 }
 
 /* FORM */
-.form-box {
-    max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 30px;
-    margin-bottom: 40px;
-}
-
-/* AVIS */
-.opinions {
-    max-width: 900px;
-    margin: auto;
-    padding-bottom: 40px;
-}
-
-.opinion {
+.form {
+    max-width: 600px;
+    margin: 40px auto;
     background: white;
     padding: 20px;
-    margin-bottom: 15px;
-    border-left: 4px solid #0b3d2e;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #0b3d2e;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-
-    .sidebar {
-        left: -260px;
-        transition: 0.3s;
-    }
-
-    .sidebar.active {
-        left: 0;
-    }
-
     .content {
         margin-left: 0;
+    }
+
+    .debate-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -114,78 +151,63 @@ body {
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-
 <!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
-</div>
-     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
-    </div>
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
-    <div class="header">
-        <h1>Débat de la semaine</h1>
-        <p>Exprimez votre opinion</p>
+<div class="header">
+    <h1>Débat de la semaine</h1>
+</div>
+
+<div class="question">
+    Faut-il interdire le téléphone au lycée ?
+</div>
+
+<div class="debate-grid">
+
+    <div class="block pour">
+        <h3>Arguments POUR</h3>
+        <ul>
+            <li>Améliore la concentration</li>
+            <li>Réduit les distractions</li>
+            <li>Favorise les échanges sociaux</li>
+        </ul>
     </div>
 
-    <!-- QUESTION -->
-    <div class="question">
-        <h2>Faut-il interdire le téléphone au lycée ?</h2>
-    </div>
-
-    <!-- GRAPHIQUE -->
-    <div class="chart-container">
-        <canvas id="chart"></canvas>
-    </div>
-
-    <!-- FORMULAIRE -->
-    <div class="form-box">
-        <h3>Donnez votre avis</h3>
-        <iframe src="TON LIEN GOOGLE FORM" width="100%" height="400"></iframe>
-    </div>
-
-    <!-- AVIS -->
-    <div class="opinions">
-        <div class="opinion">“Oui, cela améliore la concentration.”</div>
-        <div class="opinion">“Non, c’est un outil utile.”</div>
+    <div class="block contre">
+        <h3>Arguments CONTRE</h3>
+        <ul>
+            <li>Outil pédagogique utile</li>
+            <li>Communication avec les parents</li>
+            <li>Responsabilisation des élèves</li>
+        </ul>
     </div>
 
 </div>
 
-<script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-    document.querySelector(".overlay").classList.toggle("active");
-}
+<!-- GRAPH -->
+<div class="graph">
+    <h3>Résultat du débat</h3>
 
-// GRAPHIQUE
-const ctx = document.getElementById('chart');
+    <div class="bar pour-bar">60% POUR</div>
+    <div class="bar contre-bar">40% CONTRE</div>
+</div>
 
-new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Pour', 'Contre', 'Sans avis'],
-        datasets: [{
-            data: [40, 35, 25],
-        }]
-    }
-});
-</script>
+<!-- FORM -->
+<div class="form">
+    <h3>Donne ton avis</h3>
+
+    <input type="text" placeholder="Ton prénom">
+    <textarea placeholder="Ton opinion..."></textarea>
+
+    <button>Envoyer</button>
+</div>
+
+</div>
 
 </body>
 </html>
