@@ -9,26 +9,21 @@
 
 <style>
 
-/* BASE */
+/* BASE IDENTIQUE */
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
 }
 
-/* LAYOUT */
-.layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    grid-template-rows: 90px 1fr;
-}
-
 /* SIDEBAR */
 .sidebar {
-    grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
     padding: 25px 20px;
+    position: fixed;
+    width: 240px;
+    height: 100%;
 }
 
 .logo {
@@ -36,9 +31,8 @@ body {
     padding: 12px;
     text-align: center;
     margin-bottom: 30px;
-    font-size: 22px;
-    color: white !important;
     text-decoration: none;
+    color: white;
     display: block;
 }
 
@@ -51,152 +45,99 @@ body {
 
 .menu a {
     display: flex;
-    align-items: center;
     gap: 12px;
     color: white;
     text-decoration: none;
 }
 
-.menu a:hover {
-    padding-left: 8px;
-    border-left: 2px solid white;
+/* CONTENT */
+.content {
+    margin-left: 240px;
 }
 
 /* HEADER */
 .header {
-    grid-column: 2 / 4;
-    background: #0b3d2e;
+    background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    padding: 30px;
+    text-align: center;
 }
 
-.header h1 {
-    margin: 0;
+/* SECTION TITRE */
+.section-title {
+    max-width: 1000px;
+    margin: 30px auto 10px;
+    padding: 0 20px;
+    font-size: 22px;
+    border-left: 5px solid #0b3d2e;
+    padding-left: 10px;
 }
 
-/* MAIN */
-.main {
-    padding: 40px;
-    max-width: 900px;
+/* ACTU LOCALE */
+.local-main {
+    max-width: 1000px;
     margin: auto;
-}
-}
-
-/* HERO LOCAL */
-.local-hero {
     background: white;
     padding: 30px;
-    margin-bottom: 30px;
-    border-left: 5px solid #0b3d2e;
+}
+
+/* GRILLE */
+.local-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
 }
 
 /* ARTICLES */
-.articles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.article {
-    display: block;
-    background: white;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-}
-
-.article:hover {
-    transform: translateY(-3px);
-}
-
-/* CARTE */
-.map {
-    margin: 30px 0;
-}
-
-.map iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-}
-
-/* RIGHT */
-.right {
-    padding: 30px 20px;
+.local-articles {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.box {
-    background: white;
+.local-article {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+/* AGENDA */
+.agenda {
+    background: #fafafa;
     padding: 20px;
-}
-    .menu-btn {
-    display: none;
-    position: absolute;
-    left: 15px;
-    top: 25px;
-    font-size: 26px;
-    color: white;
-    z-index: 3000;
-}
-
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: none;
-}
-
-.overlay.active {
-    display: block;
-}
-.article {
     border: 1px solid #eee;
 }
+
+.agenda h3 {
+    margin-top: 0;
+}
+
+.event {
+    margin-bottom: 15px;
+}
+
+/* CARTE */
+.map {
+    margin-top: 30px;
+    height: 300px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
-    .layout {
-        grid-template-columns: 1fr;
+
+    .content {
+        margin-left: 0;
     }
 
     .sidebar {
-        display: none;
-    }
-
-    .articles {
-        grid-template-columns: 1fr;
-    }
-
-    .main {
-        padding: 20px;
-    }
-}@media (max-width: 768px) {
-
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        position: fixed;
         left: -260px;
-        top: 0;
-        width: 240px;
-        height: 100%;
-        transition: 0.3s;
     }
 
-    .sidebar.active {
-        left: 0;
-    }
-
-    .menu-btn {
-        display: block;
+    .local-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -205,92 +146,86 @@ body {
 
 <body>
 
-<div class="layout">
-
-<!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+        <a href="actu.html">Actualité</a>
+        <a href="societe.html">Société</a>
+        <a href="international.html">International</a>
+        <a href="culture.html">Culture</a>
+        <a href="analyses.html">Analyses</a>
+        <a href="local.html">Vie locale</a>
     </div>
 </div>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>Vie locale</h1>
-    <p>Ce qui se passe près de chez vous</p>
+<div class="content">
+
+    <div class="header">
+        <h1>Vie locale</h1>
+        <p>Ce qui se passe près de chez vous</p>
+    </div>
+
+    <!-- SECTION -->
+    <div class="section-title">À la une locale</div>
+
+    <div class="local-main">
+
+        <div class="local-grid">
+
+            <!-- ARTICLES -->
+            <div class="local-articles">
+
+                <div class="local-article">
+                    <h3>Nouvelle mesure dans votre ville</h3>
+                    <p>Explication rapide de la décision locale...</p>
+                </div>
+
+                <div class="local-article">
+                    <h3>Un événement marquant</h3>
+                    <p>Retour sur un fait important de la région...</p>
+                </div>
+
+                <div class="local-article">
+                    <h3>Interview d’un acteur local</h3>
+                    <p>Un commerçant ou élu prend la parole...</p>
+                </div>
+
+            </div>
+
+            <!-- AGENDA -->
+            <div class="agenda">
+                <h3>Agenda</h3>
+
+                <div class="event">
+                    <strong>Festival</strong><br>
+                    12 mai - Centre-ville
+                </div>
+
+                <div class="event">
+                    <strong>Marché</strong><br>
+                    Tous les dimanches
+                </div>
+
+                <div class="event">
+                    <strong>Conférence</strong><br>
+                    18 mai - Salle municipale
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARTE -->
+        <div class="section-title">Carte locale</div>
+
+        <div class="map">
+            Carte interactive à venir
+        </div>
+
+    </div>
+
 </div>
 
-<!-- MAIN -->
-<div class="main">
-
-    <div class="local-hero">
-        <h2>Un nouvel événement dans votre ville</h2>
-        <p>Résumé d’une actualité locale importante.</p>
-    </div>
-
-    <!-- CARTE -->
-    <div class="map">
-        <iframe src="https://maps.google.com/maps?q=Paris&t=&z=11&ie=UTF8&iwloc=&output=embed"></iframe>
-    </div>
-
-    <!-- ARTICLES -->
-    <div class="articles">
-        <a href="#" class="article">
-            <h3>Événement local</h3>
-            <p>Festival, concert ou activité.</p>
-        </a>
-
-        <a href="#" class="article">
-            <h3>Vie municipale</h3>
-            <p>Décisions locales.</p>
-        </a>
-
-        <a href="#" class="article">
-            <h3>Transport</h3>
-            <p>Infos trafic et nouveautés.</p>
-        </a>
-
-        <a href="#" class="article">
-            <h3>Initiatives</h3>
-            <p>Projets citoyens.</p>
-        </a>
-    </div>
-
-</div>
-
-<!-- RIGHT -->
-<div class="right">
-
-    <div class="box">
-        <h3>À proximité</h3>
-        <p>Événements à venir dans votre région.</p>
-    </div>
-
-    <div class="box">
-        <h3>Météo locale</h3>
-        <p>Ensoleillé, 22°C</p>
-    </div>
-
-</div>
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-</div>
-<script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-    document.querySelector(".overlay").classList.toggle("active");
-}
-</script>
 </body>
 </html>
