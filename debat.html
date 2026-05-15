@@ -16,56 +16,73 @@ body {
     background: #f5f5f5;
 }
 
-/* SIDEBAR */
+/* SIDEBAR (PLUS FINE) */
 .sidebar {
     background: #0b3d2e;
     color: white;
-    padding: 25px 20px;
+    padding: 20px 15px;
     position: fixed;
-    width: 240px;
+    width: 200px; /* 🔥 réduit */
     height: 100%;
 }
 
+/* LOGO */
 .logo {
     border: 2px solid white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: white;
     text-decoration: none;
     display: block;
+    font-size: 18px;
+}
+
+/* MENU */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    gap: 8px;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 240px;
+    margin-left: 200px; /* 🔥 aligné avec sidebar */
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
 /* QUESTION */
 .question {
-    max-width: 800px;
+    max-width: 700px;
     margin: 30px auto;
     background: white;
-    padding: 25px;
+    padding: 20px;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
 }
 
-/* POUR / CONTRE */
+/* GRID */
 .debate-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
     padding: 20px;
 }
@@ -73,7 +90,6 @@ body {
 .block {
     background: white;
     padding: 20px;
-    border: 1px solid #eee;
 }
 
 .pour {
@@ -86,20 +102,21 @@ body {
 
 /* GRAPH */
 .graph {
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 500px;
+    margin: 30px auto;
     background: white;
     padding: 20px;
     text-align: center;
 }
 
 .bar {
-    height: 30px;
+    height: 28px;
     margin: 10px 0;
     color: white;
     display: flex;
     align-items: center;
     padding-left: 10px;
+    font-size: 14px;
 }
 
 .pour-bar {
@@ -112,31 +129,42 @@ body {
     width: 40%;
 }
 
-/* FORM */
+/* FORMULAIRE PRO */
 .form {
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 500px;
+    margin: 30px auto;
     background: white;
     padding: 20px;
 }
 
-input, textarea {
+.form input,
+.form textarea,
+.form select {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
+    border: 1px solid #ddd;
 }
 
-button {
+.form button {
     margin-top: 15px;
     padding: 10px;
     background: #0b3d2e;
     color: white;
     border: none;
+    width: 100%;
     cursor: pointer;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
     .content {
         margin-left: 0;
     }
@@ -154,18 +182,16 @@ button {
 <!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
-</div>
-        <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
+
+    <div class="menu">
+        <a href="actu.html"><i class="fas fa-newspaper"></i> Actu</a>
         <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
+        <a href="international.html"><i class="fas fa-globe"></i> Inter</a>
         <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
         <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
+        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Local</a>
+        <a href="economie.html"><i class="fas fa-coins"></i> Éco</a>
         <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
 </div>
 
@@ -187,7 +213,7 @@ button {
         <ul>
             <li>Améliore la concentration</li>
             <li>Réduit les distractions</li>
-            <li>Favorise les échanges sociaux</li>
+            <li>Favorise les échanges</li>
         </ul>
     </div>
 
@@ -195,37 +221,38 @@ button {
         <h3>Arguments CONTRE</h3>
         <ul>
             <li>Outil pédagogique utile</li>
-            <li>Communication avec les parents</li>
-            <li>Responsabilisation des élèves</li>
+            <li>Communication</li>
+            <li>Responsabilisation</li>
         </ul>
     </div>
 
 </div>
 
-<!-- GRAPH -->
 <div class="graph">
     <h3>Résultat du débat</h3>
-
     <div class="bar pour-bar">60% POUR</div>
     <div class="bar contre-bar">40% CONTRE</div>
 </div>
 
-<!-- FORM -->
-<form action="https://formspree.io/f/xqenrzaw" method="POST">
+<div class="form">
+    <h3>Donne ton avis</h3>
 
-    <input type="text" name="nom" placeholder="Ton prénom" required>
+    <form action="https://formspree.io/f/xqenrzaw" method="POST">
 
-    <select name="position" required>
-        <option value="">Ton avis</option>
-        <option value="pour">Pour</option>
-        <option value="contre">Contre</option>
-    </select>
+        <input type="text" name="nom" placeholder="Ton prénom" required>
 
-    <textarea name="message" placeholder="Explique ton opinion..." required></textarea>
+        <select name="position" required>
+            <option value="">Ton avis</option>
+            <option value="pour">Pour</option>
+            <option value="contre">Contre</option>
+        </select>
 
-    <button type="submit">Envoyer</button>
+        <textarea name="message" placeholder="Ton opinion..." required></textarea>
 
-</form>
+        <button type="submit">Envoyer</button>
+
+    </form>
+</div>
 
 </div>
 
