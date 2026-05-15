@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Société - La Perspective</title>
+<title>Société & Débats - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -16,20 +16,14 @@ body {
     background: #f5f5f5;
 }
 
-/* LAYOUT */
-.layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    grid-template-rows: 90px 1fr;
-}
-}
-
-/* SIDEBAR */
+/* SIDEBAR (IDENTIQUE) */
 .sidebar {
-    grid-row: 1 / 3;
     background: #0b3d2e;
     color: white;
     padding: 25px 20px;
+    position: fixed;
+    width: 240px;
+    height: 100%;
 }
 
 .logo {
@@ -38,8 +32,8 @@ body {
     text-align: center;
     margin-bottom: 30px;
     font-size: 22px;
-    color: white !important;
     text-decoration: none;
+    color: white;
     display: block;
 }
 
@@ -51,153 +45,100 @@ body {
 
 .menu a {
     display: flex;
-    align-items: center;
     gap: 12px;
     color: white;
     text-decoration: none;
 }
 
-.menu a:hover {
-    padding-left: 8px;
-    border-left: 2px solid white;
+/* CONTENT */
+.content {
+    margin-left: 240px;
 }
 
 /* HEADER */
 .header {
-    grid-column: 2 / 4;
-    background: #0b3d2e;
+    background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding: 30px;
+    text-align: center;
 }
 
-/* MAIN */
-.main {
-    padding: 40px;
+/* QUESTION DU DÉBAT */
+.debat-main {
+    background: white;
+    margin: 30px auto;
+    max-width: 900px;
+    padding: 30px;
+    border-left: 5px solid #0b3d2e;
+}
+
+.debat-main h2 {
+    margin-top: 0;
+}
+
+/* OPINIONS */
+.opinions {
     max-width: 900px;
     margin: auto;
-}
+    padding: 20px;
 }
 
-/* HERO */
-.hero {
+.opinion {
     background: white;
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid #0b3d2e;
 }
 
-.hero h2 {
-    margin-top: 0;
-    font-size: 30px;
-}
-
-/* GRID ARTICLES */
-.grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 25px;
+.opinion strong {
+    display: block;
+    margin-bottom: 10px;
 }
 
 /* ARTICLES */
+.articles {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 20px;
+}
+
 .article {
-    display: block;
     background: white;
     padding: 20px;
     text-decoration: none;
     color: black;
+    border: 1px solid #eee;
+    transition: 0.3s;
 }
 
 .article:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
 }
 
-/* LISTE ARTICLES */
-.list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* RIGHT */
-.right {
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.box {
+/* FORM */
+.form-box {
+    max-width: 900px;
+    margin: 30px auto;
     background: white;
     padding: 20px;
 }
 
-/* DEBAT */
-.debat {
-    border-left: 4px solid #0b3d2e;
-}
-    .menu-btn {
-    display: none;
-    position: absolute;
-    left: 15px;
-    top: 25px;
-    font-size: 26px;
-    color: white;
-    z-index: 3000;
-}
-
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: none;
-}
-
-.overlay.active {
-    display: block;
-}
-    .article {
-    border: 1px solid #eee;
-}
-
 /* MOBILE */
 @media (max-width: 768px) {
-
-    .layout {
-        grid-template-columns: 1fr;
+    .content {
+        margin-left: 0;
     }
 
     .sidebar {
-        display: none;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }@media (max-width: 768px) {
-
-    .layout {
-        grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        position: fixed;
         left: -260px;
-        top: 0;
-        width: 240px;
-        height: 100%;
-        transition: 0.3s;
     }
 
-    .sidebar.active {
-        left: 0;
+    .articles {
+        grid-template-columns: 1fr;
     }
-
-    .menu-btn {
-        display: block;
-    }
-}
 }
 
 </style>
@@ -205,93 +146,75 @@ body {
 
 <body>
 
-<div class="layout">
-
 <!-- SIDEBAR -->
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+        <a href="actu.html">Actualité</a>
+        <a href="societe.html">Société</a>
+        <a href="international.html">International</a>
+        <a href="culture.html">Culture</a>
+        <a href="analyses.html">Analyses</a>
+        <a href="local.html">Vie locale</a>
+        <a href="economie.html">Économie</a>
+        <a href="debat.html">Débat</a>
+        <a href="interviews.html">Interviews</a>
+        <a href="necrologie.html">Nécrologie</a>
     </div>
 </div>
 
-<!-- HEADER -->
-<div class="header">
-    <h1>Société</h1>
-    <p>Regards sur les évolutions sociales</p>
-</div>
+<!-- CONTENT -->
+<div class="content">
 
-<!-- MAIN -->
-<div class="main">
-
-    <!-- HERO -->
-    <div class="hero">
-        <h2>Les jeunes face aux réseaux sociaux</h2>
-        <p>Une analyse des usages et des impacts sur la société actuelle.</p>
+    <div class="header">
+        <h1>Société & Débats</h1>
+        <p>Les questions qui traversent notre époque</p>
     </div>
 
-    <!-- GRID -->
-    <div class="grid">
+    <!-- QUESTION -->
+    <div class="debat-main">
+        <h2>Faut-il interdire le téléphone au lycée ?</h2>
+        <p>Un débat qui divise élèves, parents et enseignants.</p>
+    </div>
 
-        <!-- ARTICLE PRINCIPAL -->
-        <a href="#" class="article">
-            <h3>Éducation et numérique</h3>
-            <p>Comment l’école s’adapte aux nouvelles technologies.</p>
-        </a>
+    <!-- OPINIONS -->
+    <div class="opinions">
 
-        <!-- COLONNE ARTICLES -->
-        <div class="list">
+        <div class="opinion">
+            <strong>Lucas, 17 ans</strong>
+            <p>“Le téléphone est utile pour travailler et s’informer.”</p>
+        </div>
 
-            <a href="#" class="article">
-                <h4>Vie quotidienne</h4>
-                <p>Les nouvelles habitudes sociales.</p>
-            </a>
-
-            <a href="#" class="article">
-                <h4>Travail</h4>
-                <p>Évolution du monde professionnel.</p>
-            </a>
-
+        <div class="opinion">
+            <strong>Marie, professeure</strong>
+            <p>“Il perturbe fortement l’attention en classe.”</p>
         </div>
 
     </div>
 
-</div>
+    <!-- ARTICLES -->
+    <div class="articles">
 
-<!-- RIGHT -->
-<div class="right">
+        <a href="#" class="article">
+            <h3>Réseaux sociaux et santé mentale</h3>
+            <p>Un enjeu majeur chez les jeunes.</p>
+        </a>
 
-    <div class="box debat">
-        <h3>Débat de la semaine</h3>
-        <p>Faut-il limiter les réseaux sociaux chez les jeunes ?</p>
-        <a href="debat.html">Participer →</a>
+        <a href="#" class="article">
+            <h3>Éducation : quels défis ?</h3>
+            <p>Analyse des transformations actuelles.</p>
+        </a>
+
     </div>
 
-    <div class="box">
-        <h3>Analyse rapide</h3>
-        <p>Les transformations sociales s’accélèrent avec le numérique.</p>
+    <!-- FORMULAIRE -->
+    <div class="form-box">
+        <h3>Donne ton avis</h3>
+        <iframe src="TON LIEN GOOGLE FORM" width="100%" height="400"></iframe>
     </div>
 
 </div>
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-</div>
 
-<script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-    document.querySelector(".overlay").classList.toggle("active");
-}
-</script>
 </body>
 </html>
