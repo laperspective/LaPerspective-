@@ -10,17 +10,12 @@
 <style>
 
 /* RESET */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
-}
-
-/* LAYOUT */
-.layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    min-height: 100vh;
 }
 
 /* SIDEBAR */
@@ -33,31 +28,14 @@ body {
     background: #0b3d2e;
     color: white;
     padding: 20px;
-    z-index: 2000;
-}
- .insta {
-    display: block;
-    margin-top: 30px;
-    padding: 10px;
-    background: #0b3d2e;
-    color: white;
-    text-align: left;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-}
 }
 
-.insta:hover {
-    opacity: 0.8;
-}
-
+/* LOGO */
 .logo {
     border: 2px solid white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 22px;
+    margin-bottom: 25px;
     text-decoration: none;
     color: white;
     display: block;
@@ -67,103 +45,72 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
 }
 
 .menu a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
     color: white;
     text-decoration: none;
-    position: relative;
+    font-size: 14px;
+    display: flex;
+    gap: 10px;
 }
 
-.menu a::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: white;
-    transition: 0.3s;
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #e1306c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
-.menu a:hover::after {
-    width: 100%;
-}
-
-/* MAIN CONTENT */
+/* CONTENT */
 .content {
-    margin-left: 240px;
+    margin-left: 200px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 30px;
+    padding: 40px;
     text-align: center;
 }
 
 /* HERO */
 .hero {
+    max-width: 900px;
+    margin: 30px auto;
     background: white;
     padding: 30px;
-    margin: 30px auto;
-    max-width: 900px;
     border-left: 5px solid #0b3d2e;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* ARTICLES */
+/* ARTICLES GRID */
 .articles {
     max-width: 900px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    padding: 0 20px 40px;
+    gap: 20px;
+    padding: 20px;
 }
 
+/* CARD */
 .article {
     background: white;
     padding: 20px;
     text-decoration: none;
     color: black;
+    transition: 0.3s;
     border: 1px solid #eee;
-    transition: all 0.3s ease;
-    position: relative;
 }
 
 .article:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.article::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: #0b3d2e;
-    transition: 0.3s;
-}
-
-.article:hover::after {
-    width: 100%;
-}
-
-/* TYPO */
-h1, h2, h3 {
-    letter-spacing: -0.5px;
-}
-
-p {
-    color: #333;
+    transform: translateY(-5px);
 }
 
 /* MOBILE MENU */
@@ -175,7 +122,6 @@ p {
     font-size: 26px;
     color: white;
     z-index: 3000;
-    cursor: pointer;
 }
 
 .overlay {
@@ -184,7 +130,6 @@ p {
     height: 100%;
     background: rgba(0,0,0,0.4);
     display: none;
-    z-index: 1500;
 }
 
 .overlay.active {
@@ -195,7 +140,7 @@ p {
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -260px;
+        left: -220px;
         transition: 0.3s;
     }
 
@@ -226,6 +171,7 @@ p {
 
 <!-- SIDEBAR -->
 <div class="sidebar">
+
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
@@ -234,16 +180,18 @@ p {
         <a href="international.html"><i class="fas fa-globe"></i> International</a>
         <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
         <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
+        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Local</a>
         <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
         <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+    </div>
+
+    <a href="https://instagram.com/TONCOMPTE" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
 </div>
-<a href="https://www.instagram.com/laperspective_journal" target="_blank" class="insta">
-    <i class="fab fa-instagram"></i> Instagram
-</a>
-  
 
 <!-- CONTENT -->
 <div class="content">
@@ -254,30 +202,28 @@ p {
     </div>
 
     <div class="hero">
-        <h2>Grand titre principal</h2>
-        <p>Résumé de l’actualité majeure du jour.</p>
+        <h2>Téléphone au lycée : faut-il vraiment l’interdire ?</h2>
+        <p>Analyse d’un débat qui divise élèves, parents et enseignants.</p>
     </div>
 
     <div class="articles">
+
         <a href="article1.html" class="article">
-            <h3>Article 1</h3>
-            <p>Résumé court.</p>
+            <h3>Inflation : pourquoi les prix augmentent</h3>
         </a>
 
         <a href="article2.html" class="article">
-            <h3>Article 2</h3>
-            <p>Résumé court.</p>
+            <h3>Crise internationale : tensions en hausse</h3>
         </a>
 
         <a href="article3.html" class="article">
-            <h3>Article 3</h3>
-            <p>Résumé court.</p>
+            <h3>Culture : les jeunes désertent le cinéma</h3>
         </a>
 
         <a href="article4.html" class="article">
-            <h3>Article 4</h3>
-            <p>Résumé court.</p>
+            <h3>Réseaux sociaux : influence ou manipulation ?</h3>
         </a>
+
     </div>
 
 </div>
