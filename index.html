@@ -82,40 +82,6 @@ body {
     margin: 0;
 }
 }
-
-/* HERO */
-.hero {
-    max-width: 900px;
-    margin: 30px auto;
-    background: white;
-    padding: 30px;
-    border-left: 5px solid #0b3d2e;
-}
-
-/* ARTICLES GRID */
-.articles {
-    max-width: 900px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
-
-/* CARD */
-.article {
-    background: white;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-    transition: 0.3s;
-    border: 1px solid #eee;
-}
-
-.article:hover {
-    transform: translateY(-5px);
-}
-
 /* MOBILE MENU */
 .menu-btn {
     display: none;
@@ -145,6 +111,76 @@ body {
 
 a:visited {
     color: inherit;
+}
+    
+    /* SECTION ARTICLES */
+.articles-section {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    border-radius: 6px;
+}
+
+/* TITRE */
+.section-title {
+    font-size: 28px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #0b3d2e;
+    padding-bottom: 10px;
+}
+
+/* GRID */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+/* ARTICLE */
+.article {
+    background: #fafafa;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #eee;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* HOVER PRO */
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/*  EFFET LIGNE */
+.article::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: #0b3d2e;
+    transition: 0.3s;
+}
+
+.article:hover::after {
+    width: 100%;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .articles-section {
+        margin: 20px;
+        padding: 20px;
+    }
 }
 
 /* RESPONSIVE */
@@ -212,32 +248,32 @@ a:visited {
         <p>Comprendre le monde</p>
     </div>
 
-    <div class="hero">
-        <a href="article1.html" class="hero"
-        <h2>Téléphone au lycée : faut-il vraiment l’interdire ?</h2>
-        <p>Analyse d’un débat qui divise élèves et enseignants.</p>
-    </div>
+    <div class="articles-section">
 
-    <div class="articles">
+    <h2 class="section-title">À la une</h2>
+
+    <div class="articles-grid">
+
+        <a href="article1.html" class="article">
+            <h3>Téléphone au lycée : faut-il l’interdire ?</h3>
+            <p>Analyse d’un débat qui divise élèves et enseignants.</p>
+        </a>
 
         <a href="article2.html" class="article">
             <h3>Inflation : pourquoi les prix augmentent</h3>
         </a>
 
-        <a href="article2.html" class="article">
-            <h3>Crise internationale : tensions en hausse </h3>
-        </a>
-
         <a href="article3.html" class="article">
-            <h3>Culture : les jeunes désertent le cinéma</h3>
+            <h3>Crise internationale : tensions en hausse</h3>
         </a>
 
         <a href="article4.html" class="article">
-            <h3>Réseaux sociaux : influence ou manipulation ?</h3>
+            <h3>Culture : les jeunes désertent le cinéma</h3>
         </a>
 
     </div>
 
+</div>
 </div>
 
 <script>
