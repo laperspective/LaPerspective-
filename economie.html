@@ -3,167 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Économie - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
 /* RESET */
-* { box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    margin: 0;
     font-family: Georgia, serif;
-    background: #f5f5f5;
-    color: #111;
+    background:#f5f5f5;
 }
 
 /* SIDEBAR */
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    background: #0b3d2e;
-    color: white;
-    padding: 20px;
-    z-index: 2000;
+    width:190px;
+    height:100vh;
+    background:#0b3d2e;
+    color:white;
+    padding:20px;
 }
 
-/* LOGO */
 .logo {
-    border: 2px solid white;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-weight: bold;
+    border:2px solid white;
+    padding:10px;
+    text-align:center;
+    margin-bottom:30px;
+    color:white;
+    text-decoration:none;
 }
 
 /* MENU */
 .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
 }
 
 .menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
 }
 
 /* INSTAGRAM */
 .insta {
-    margin-top: 30px;
-    display: block;
-    padding: 10px;
-    background: #e1306c;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+    margin-top:30px;
+    background:#e1306c;
+    padding:10px;
+    text-align:center;
+    color:white;
+    text-decoration:none;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 200px;
+    margin-left:190px;
 }
 
 /* HEADER */
 .header {
-    background: linear-gradient(135deg, #0b3d2e, #145c45);
-    color: white;
-    padding: 35px;
-    text-align: center;
+    background:linear-gradient(135deg,#0b3d2e,#145c45);
+    color:white;
+    padding:35px;
+    text-align:center;
 }
 
 /* MAIN */
 .main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
+    max-width:1000px;
+    margin:30px auto;
+    padding:20px;
 }
 
 /* HERO */
 .hero {
-    background: white;
-    padding: 30px;
-    border-left: 5px solid #0b3d2e;
-    margin-bottom: 30px;
+    background:white;
+    padding:30px;
+    border-left:5px solid #0b3d2e;
+    margin-bottom:30px;
 }
 
-/* GRID ARTICLES */
+/* BOURSE */
+.bourse {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.indice {
+    background:white;
+    padding:20px;
+    text-align:center;
+}
+
+.up { color:green; }
+.down { color:red; }
+
+/* ARTICLES */
 .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
 }
 
-/* CARD */
 .card {
-    background: white;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-    border: 1px solid #eee;
-    transition: 0.3s;
+    background:white;
+    padding:20px;
+    text-decoration:none;
+    color:black;
+    border:1px solid #eee;
+    transition:0.3s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform:translateY(-5px);
 }
 
-/* MOBILE MENU */
+/* MOBILE */
 .menu-btn {
-    display: none;
-    position: fixed;
-    top: 20px;
-    left: 15px;
-    font-size: 26px;
-    color: white;
-    z-index: 3000;
-    cursor: pointer;
+    display:none;
+    position:fixed;
+    top:20px;
+    left:15px;
+    font-size:26px;
+    color:white;
 }
 
 .overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+    display:none;
 }
 
-.overlay.active {
-    display: block;
-}
+.overlay.active { display:block; }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+@media(max-width:768px){
 
     .sidebar {
-        left: -220px;
-        transition: 0.3s;
+        left:-210px;
+        transition:0.3s;
     }
 
-    .sidebar.active {
-        left: 0;
-    }
+    .sidebar.active { left:0; }
 
-    .content {
-        margin-left: 0;
-    }
+    .content { margin-left:0; }
 
-    .menu-btn {
-        display: block;
-    }
+    .menu-btn { display:block; }
 
-    .grid {
-        grid-template-columns: 1fr;
-    }
+    .bourse { grid-template-columns:1fr; }
+
+    .grid { grid-template-columns:1fr; }
 }
 
 </style>
@@ -177,62 +173,94 @@ body {
 <!-- SIDEBAR -->
 <div class="sidebar">
 
-    <a href="index.html" class="logo">LP</a>
+<a href="index.html" class="logo">LP</a>
 
-    <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
-    </div>
+<div class="menu">
+<a href="actu.html">Actualité</a>
+<a href="societe.html">Société</a>
+<a href="international.html">International</a>
+<a href="culture.html">Culture</a>
+<a href="analyses.html">Analyses</a>
+<a href="local.html">Vie locale</a>
+<a href="economie.html">Économie</a>
+<a href="debat.html">Débat</a>
+<a href="interviews.html">Interviews</a>
+<a href="necrologie.html">Nécrologie</a>
+</div>
 
-    <a href="https://instagram.com/laperspective_journal" target="_blank" class="insta">
-        <i class="fab fa-instagram"></i> Instagram
-    </a>
+<a href="https://instagram.com/TONCOMPTE" class="insta">Instagram</a>
 
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
-    <div class="header">
-        <h1>Économie</h1>
-        <p>Marchés, entreprises, analyse</p>
-    </div>
+<div class="header">
+<h1>Économie</h1>
+<p>Marchés, entreprises, analyses</p>
+</div>
 
-    <div class="hero-eco">
-        <h2>Inflation : une nouvelle hausse inquiétante</h2>
-        <p>Analyse des dernières données économiques.</p>
-    </div>
+<div class="main">
 
-    <div class="bourse">
-        <div class="indice"><h3>CAC 40</h3><p class="up">+1.2%</p></div>
-        <div class="indice"><h3>Dow Jones</h3><p class="down">-0.5%</p></div>
-        <div class="indice"><h3>NASDAQ</h3><p class="up">+0.8%</p></div>
-    </div>
+<!-- ARTICLE PRINCIPAL -->
+<div class="hero">
+<h2>Inflation : une hausse qui inquiète durablement</h2>
+<p>Les prix continuent d’augmenter, pesant sur le pouvoir d’achat des ménages.</p>
+</div>
 
-    <div class="articles">
-        <a href="#" class="article"><h3>Pouvoir d’achat</h3><p>Les Français face à la hausse.</p></a>
-        <a href="#" class="article"><h3>Entreprises</h3><p>Les grandes mutations.</p></a>
-        <a href="#" class="article"><h3>Startups</h3><p>Les innovations clés.</p></a>
-        <a href="#" class="article"><h3>Marchés</h3><p>Tendances boursières.</p></a>
-    </div>
+<!-- BOURSE -->
+<div class="bourse">
+
+<div class="indice">
+<h3>CAC 40</h3>
+<p class="up">+1.2%</p>
+</div>
+
+<div class="indice">
+<h3>Dow Jones</h3>
+<p class="down">-0.5%</p>
+</div>
+
+<div class="indice">
+<h3>NASDAQ</h3>
+<p class="up">+0.8%</p>
+</div>
 
 </div>
 
+<!-- ARTICLES -->
+<div class="grid">
+
+<a href="#" class="card">
+<h3>Pouvoir d’achat</h3>
+<p>Pourquoi les Français dépensent moins.</p>
+</a>
+
+<a href="#" class="card">
+<h3>Entreprises</h3>
+<p>Les grandes mutations économiques.</p>
+</a>
+
+<a href="#" class="card">
+<h3>Startups</h3>
+<p>Les innovations qui bouleversent le marché.</p>
+</a>
+
+<a href="#" class="card">
+<h3>Marchés</h3>
+<p>Analyse des tendances boursières.</p>
+</a>
+
+</div>
+
+</div>
 
 </div>
 
 <script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-    document.querySelector(".overlay").classList.toggle("active");
+function toggleMenu(){
+document.querySelector(".sidebar").classList.toggle("active");
+document.querySelector(".overlay").classList.toggle("active");
 }
 </script>
 
