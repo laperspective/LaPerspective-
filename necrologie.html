@@ -146,10 +146,11 @@ body {
     }
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -260px;
+        left: -220px;
         transition: 0.3s;
     }
 
@@ -164,6 +165,12 @@ body {
     .menu-btn {
         display: block;
     }
+
+    .articles {
+        grid-template-columns: 1fr;
+    }
+}
+
 
     .necro-grid {
         grid-template-columns: repeat(2, 1fr);
