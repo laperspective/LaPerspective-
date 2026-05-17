@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vie locale - La Perspective</title>
+<title>La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* BASE IDENTIQUE */
+/* RESET */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
+    color: #111;
 }
 
 /* SIDEBAR */
@@ -29,117 +32,136 @@ body {
     z-index: 2000;
 }
 
+/* LOGO */
 .logo {
     border: 2px solid white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     margin-bottom: 30px;
     text-decoration: none;
     color: white;
     display: block;
+    font-weight: bold;
 }
 
 /* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 15px;
 }
 
 .menu a {
-    display: flex;
-    gap: 12px;
     color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #e1306c;
+    color: white;
+    text-align: center;
     text-decoration: none;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 240px;
+    margin-left: 200px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 30px;
+    padding: 35px;
     text-align: center;
 }
 
-/* SECTION TITRE */
-.section-title {
+/* MAIN */
+.main {
     max-width: 1000px;
-    margin: 30px auto 10px;
-    padding: 0 20px;
-    font-size: 22px;
-    border-left: 5px solid #0b3d2e;
-    padding-left: 10px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
-/* ACTU LOCALE */
-.local-main {
-    max-width: 1000px;
-    margin: auto;
+/* HERO */
+.hero {
     background: white;
     padding: 30px;
+    border-left: 5px solid #0b3d2e;
+    margin-bottom: 30px;
 }
 
-/* GRILLE */
-.local-grid {
+/* GRID ARTICLES */
+.grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 30px;
-}
-
-/* ARTICLES */
-.local-articles {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-.local-article {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
-}
-
-/* AGENDA */
-.agenda {
-    background: #fafafa;
+/* CARD */
+.card {
+    background: white;
     padding: 20px;
+    text-decoration: none;
+    color: black;
     border: 1px solid #eee;
+    transition: 0.3s;
 }
 
-.agenda h3 {
-    margin-top: 0;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.event {
-    margin-bottom: 15px;
+/* MOBILE MENU */
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    font-size: 26px;
+    color: white;
+    z-index: 3000;
+    cursor: pointer;
 }
 
-/* CARTE */
-.map {
-    margin-top: 30px;
-    height: 300px;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
 }
 
-/* MOBILE */
+.overlay.active {
+    display: block;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
+
+    .sidebar {
+        left: -220px;
+        transition: 0.3s;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
 
     .content {
         margin-left: 0;
     }
 
-    .sidebar {
-        left: -260px;
+    .menu-btn {
+        display: block;
     }
 
-    .local-grid {
+    .grid {
         grid-template-columns: 1fr;
     }
 }
@@ -149,9 +171,15 @@ body {
 
 <body>
 
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<!-- SIDEBAR -->
 <div class="sidebar">
+
     <a href="index.html" class="logo">LP</a>
- <div class="menu">
+
+    <div class="menu">
         <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
         <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
         <a href="international.html"><i class="fas fa-globe"></i> International</a>
@@ -163,75 +191,64 @@ body {
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
+
+    <a href="https://instagram.com/TONCOMPTE" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
 </div>
 
+<!-- CONTENT -->
 <div class="content">
 
     <div class="header">
-        <h1>Vie locale</h1>
-        <p>Ce qui se passe près de chez vous</p>
+        <h1>TITRE DE LA RUBRIQUE</h1>
+        <p>Sous-titre / accroche journalistique</p>
     </div>
 
-    <!-- SECTION -->
-    <div class="section-title">À la une locale</div>
+    <div class="main">
 
-    <div class="local-main">
-
-        <div class="local-grid">
-
-            <!-- ARTICLES -->
-            <div class="local-articles">
-
-                <div class="local-article">
-                    <h3>Nouvelle mesure dans votre ville</h3>
-                    <p>Explication rapide de la décision locale...</p>
-                </div>
-
-                <div class="local-article">
-                    <h3>Un événement marquant</h3>
-                    <p>Retour sur un fait important de la région...</p>
-                </div>
-
-                <div class="local-article">
-                    <h3>Interview d’un acteur local</h3>
-                    <p>Un commerçant ou élu prend la parole...</p>
-                </div>
-
-            </div>
-
-            <!-- AGENDA -->
-            <div class="agenda">
-                <h3>Agenda</h3>
-
-                <div class="event">
-                    <strong>Festival</strong><br>
-                    12 mai - Centre-ville
-                </div>
-
-                <div class="event">
-                    <strong>Marché</strong><br>
-                    Tous les dimanches
-                </div>
-
-                <div class="event">
-                    <strong>Conférence</strong><br>
-                    18 mai - Salle municipale
-                </div>
-
-            </div>
-
+        <!-- ARTICLE PRINCIPAL -->
+        <div class="hero">
+            <h2>Grand titre principal</h2>
+            <p>Résumé de l’article principal.</p>
         </div>
 
-        <!-- CARTE -->
-        <div class="section-title">Carte locale</div>
+        <!-- ARTICLES -->
+        <div class="grid">
 
-        <div class="map">
-            Carte interactive à venir
+            <a href="#" class="card">
+                <h3>Article 1</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 2</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 3</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 4</h3>
+                <p>Résumé court</p>
+            </a>
+
         </div>
 
     </div>
 
 </div>
+
+<script>
+function toggleMenu() {
+    document.querySelector(".sidebar").classList.toggle("active");
+    document.querySelector(".overlay").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
