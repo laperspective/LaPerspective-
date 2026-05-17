@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Débat - La Perspective</title>
+<title>La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* BASE */
+/* RESET */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
+    color: #111;
 }
 
-/* SIDEBAR  */
+/* SIDEBAR */
 .sidebar {
     position: fixed;
     top: 0;
@@ -28,151 +31,137 @@ body {
     padding: 20px;
     z-index: 2000;
 }
-    
+
 /* LOGO */
 .logo {
     border: 2px solid white;
     padding: 10px;
     text-align: center;
-    margin-bottom: 25px;
-    color: white;
+    margin-bottom: 30px;
     text-decoration: none;
+    color: white;
     display: block;
-    font-size: 18px;
+    font-weight: bold;
 }
 
 /* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
     font-size: 14px;
-    display: flex;
-    gap: 8px;
+}
+
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #e1306c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 200px; /* 🔥 aligné avec sidebar */
+    margin-left: 200px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 30px 20px;
+    padding: 35px;
     text-align: center;
 }
 
-/* QUESTION */
-.question {
-    max-width: 700px;
+/* MAIN */
+.main {
+    max-width: 1000px;
     margin: 30px auto;
-    background: white;
     padding: 20px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
 }
 
-/* GRID */
-.debate-grid {
+/* HERO */
+.hero {
+    background: white;
+    padding: 30px;
+    border-left: 5px solid #0b3d2e;
+    margin-bottom: 30px;
+}
+
+/* GRID ARTICLES */
+.grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
 }
 
-.block {
+/* CARD */
+.card {
     background: white;
     padding: 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #eee;
+    transition: 0.3s;
 }
 
-.pour {
-    border-top: 4px solid #2e7d32;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.contre {
-    border-top: 4px solid #c62828;
-}
-
-/* GRAPH */
-.graph {
-    max-width: 500px;
-    margin: 30px auto;
-    background: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.bar {
-    height: 28px;
-    margin: 10px 0;
+/* MOBILE MENU */
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    font-size: 26px;
     color: white;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    font-size: 14px;
-}
-
-.pour-bar {
-    background: #2e7d32;
-    width: 60%;
-}
-
-.contre-bar {
-    background: #c62828;
-    width: 40%;
-}
-
-/* FORMULAIRE PRO */
-.form {
-    max-width: 500px;
-    margin: 30px auto;
-    background: white;
-    padding: 20px;
-}
-
-.form input,
-.form textarea,
-.form select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: 1px solid #ddd;
-}
-
-.form button {
-    margin-top: 15px;
-    padding: 10px;
-    background: #0b3d2e;
-    color: white;
-    border: none;
-    width: 100%;
+    z-index: 3000;
     cursor: pointer;
 }
 
-/* MOBILE */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
     .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
+        left: -220px;
+        transition: 0.3s;
+    }
+
+    .sidebar.active {
+        left: 0;
     }
 
     .content {
         margin-left: 0;
     }
 
-    .debate-grid {
+    .menu-btn {
+        display: block;
+    }
+
+    .grid {
         grid-template-columns: 1fr;
     }
 }
@@ -182,11 +171,15 @@ body {
 
 <body>
 
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="toggleMenu()"></div>
+
 <!-- SIDEBAR -->
 <div class="sidebar">
+
     <a href="index.html" class="logo">LP</a>
 
-<div class="menu">
+    <div class="menu">
         <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
         <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
         <a href="international.html"><i class="fas fa-globe"></i> International</a>
@@ -198,68 +191,64 @@ body {
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
+
+    <a href="https://instagram.com/TONCOMPTE" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
-<div class="header">
-    <h1>Débat de la semaine</h1>
-</div>
-
-<div class="question">
-    Faut-il interdire le téléphone au lycée ?
-</div>
-
-<div class="debate-grid">
-
-    <div class="block pour">
-        <h3>Arguments POUR</h3>
-        <ul>
-            <li>Améliore la concentration</li>
-            <li>Réduit les distractions</li>
-            <li>Favorise les échanges</li>
-        </ul>
+    <div class="header">
+        <h1>TITRE DE LA RUBRIQUE</h1>
+        <p>Sous-titre / accroche journalistique</p>
     </div>
 
-    <div class="block contre">
-        <h3>Arguments CONTRE</h3>
-        <ul>
-            <li>Outil pédagogique utile</li>
-            <li>Communication</li>
-            <li>Responsabilisation</li>
-        </ul>
+    <div class="main">
+
+        <!-- ARTICLE PRINCIPAL -->
+        <div class="hero">
+            <h2>Grand titre principal</h2>
+            <p>Résumé de l’article principal.</p>
+        </div>
+
+        <!-- ARTICLES -->
+        <div class="grid">
+
+            <a href="#" class="card">
+                <h3>Article 1</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 2</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 3</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 4</h3>
+                <p>Résumé court</p>
+            </a>
+
+        </div>
+
     </div>
 
 </div>
 
-<div class="graph">
-    <h3>Résultat du débat</h3>
-    <div class="bar pour-bar">60% POUR</div>
-    <div class="bar contre-bar">40% CONTRE</div>
-</div>
-
-<div class="form">
-    <h3>Donne ton avis</h3>
-
-    <form action="https://formspree.io/f/xqenrzaw" method="POST">
-
-        <input type="text" name="nom" placeholder="Ton prénom" required>
-
-        <select name="position" required>
-            <option value="">Ton avis</option>
-            <option value="pour">Pour</option>
-            <option value="contre">Contre</option>
-        </select>
-
-        <textarea name="message" placeholder="Ton opinion..." required></textarea>
-
-        <button type="submit">Envoyer</button>
-
-    </form>
-</div>
-
-</div>
+<script>
+function toggleMenu() {
+    document.querySelector(".sidebar").classList.toggle("active");
+    document.querySelector(".overlay").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
