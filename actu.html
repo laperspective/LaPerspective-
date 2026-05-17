@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Actualité - La Perspective</title>
+<title>La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* BASE IDENTIQUE */
+/* RESET */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: Georgia, serif;
@@ -21,77 +23,83 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
-    height: 100vh;
+    width: 220px;
+    height: 100%;
     background: #0b3d2e;
     color: white;
     padding: 20px;
     z-index: 2000;
+    transition: 0.3s;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 22px;
-    text-decoration: none;
+    margin-bottom: 25px;
     color: white;
+    text-decoration: none;
     display: block;
 }
 
+/* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 14px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
+    display: flex;
+    gap: 10px;
+}
+
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #0b3d2e;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 240px;
+    margin-left: 220px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 30px;
+    padding: 40px;
     text-align: center;
 }
 
-/* TOP ARTICLE */
-.top-article {
-    max-width: 1000px;
+/* HERO */
+.hero {
+    max-width: 900px;
     margin: 30px auto;
     background: white;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 20px;
-    padding: 25px;
+    padding: 30px;
+    border-left: 5px solid #0b3d2e;
 }
 
-.top-article img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-/* GRID ACTU */
-.news-grid {
-    max-width: 1000px;
+/* GRID ARTICLES */
+.articles {
+    max-width: 900px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     padding: 20px;
 }
 
-.news-card {
+.article {
     background: white;
     padding: 20px;
     text-decoration: none;
@@ -100,18 +108,8 @@ body {
     transition: 0.3s;
 }
 
-.news-card:hover {
+.article:hover {
     transform: translateY(-5px);
-}
-
-/* FLASH ACTU */
-.flash {
-    max-width: 1000px;
-    margin: 30px auto;
-    background: #0b3d2e;
-    color: white;
-    padding: 15px;
-    font-weight: bold;
 }
 
 /* MOBILE MENU */
@@ -123,6 +121,7 @@ body {
     font-size: 26px;
     color: white;
     z-index: 3000;
+    cursor: pointer;
 }
 
 .overlay {
@@ -131,17 +130,18 @@ body {
     height: 100%;
     background: rgba(0,0,0,0.4);
     display: none;
+    z-index: 1500;
 }
 
 .overlay.active {
     display: block;
 }
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -220px;
-        transition: 0.3s;
+        left: -240px;
     }
 
     .sidebar.active {
@@ -161,8 +161,6 @@ body {
     }
 }
 
-}
-
 </style>
 </head>
 
@@ -173,75 +171,59 @@ body {
 
 <!-- SIDEBAR -->
 <div class="sidebar">
+
     <a href="index.html" class="logo">LP</a>
 
-   <div class="menu">
+    <div class="menu">
         <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
         <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
         <a href="international.html"><i class="fas fa-globe"></i> International</a>
         <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
         <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
+        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Local</a>
         <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
         <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
+
+    <a href="https://instagram.com/laperspective_journal" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
     <div class="header">
-        <h1>Actualité</h1>
-        <p>Les événements majeurs en temps réel</p>
+        <h1>La Perspective</h1>
+        <p>Comprendre le monde</p>
     </div>
 
-    <!-- FLASH -->
-    <div class="flash">
-         FLASH : Information urgente en cours...
+    <!-- HERO -->
+    <div class="hero">
+        <h2>Téléphone au lycée : une interdiction efficace ?</h2>
+        <p>L’interdiction du téléphone relance un débat entre discipline et liberté.</p>
     </div>
 
-    <!-- ARTICLE PRINCIPAL -->
-    <div class="top-article">
-        <div>
-            <h2>Grand événement du jour</h2>
-            <p>Résumé détaillé de l’actualité principale avec un peu plus de contenu.</p>
-        </div>
-        <img src="https://picsum.photos/500/300">
-    </div>
+    <!-- ARTICLES -->
+    <div class="articles">
 
-    <!-- AUTRES ACTUS -->
-    <div class="news-grid">
-
-        <a href="#" class="news-card">
-            <h3>Politique</h3>
-            <p>Dernières décisions importantes.</p>
+        <a href="article1.html" class="article">
+            <h3>Inflation : pourquoi les prix augmentent</h3>
         </a>
 
-        <a href="#" class="news-card">
-            <h3>Faits divers</h3>
-            <p>Actualités marquantes du jour.</p>
+        <a href="article2.html" class="article">
+            <h3>Crise internationale : tensions en hausse</h3>
         </a>
 
-        <a href="#" class="news-card">
-            <h3>Éducation</h3>
-            <p>Les évolutions récentes.</p>
+        <a href="article3.html" class="article">
+            <h3>Culture : les jeunes désertent le cinéma</h3>
         </a>
 
-        <a href="#" class="news-card">
-            <h3>Justice</h3>
-            <p>Décisions importantes.</p>
-        </a>
-
-        <a href="#" class="news-card">
-            <h3>Technologie</h3>
-            <p>Innovations et nouveautés.</p>
-        </a>
-
-        <a href="#" class="news-card">
-            <h3>Environnement</h3>
-            <p>Enjeux actuels.</p>
+        <a href="article4.html" class="article">
+            <h3>Réseaux sociaux : influence ou manipulation ?</h3>
         </a>
 
     </div>
