@@ -3,140 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Article - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* BASE */
+/* RESET */
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* SIDEBAR */
 .sidebar {
+    position: fixed;
+    width: 200px;
+    height: 100%;
     background: #0b3d2e;
     color: white;
-    padding: 25px 20px;
-    position: fixed;
-    width: 240px;
-    height: 100%;
+    padding: 20px;
 }
 
 .logo {
     border: 2px solid white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
-    margin-bottom: 30px;
-    color: white;
-    text-decoration: none;
-    display: block;
+    margin-bottom: 25px;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 240px;
+    margin-left: 200px;
 }
 
-/* HEADER */
-.header {
+/* HEADER ARTICLE */
+.article-header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 40px 20px;
+    padding: 50px 20px;
     text-align: center;
 }
 
-/* ARTICLE CONTAINER */
-.article-container {
+.article-header h1 {
     max-width: 800px;
-    margin: 40px auto;
-    background: white;
-    padding: 40px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
-
-/* TITLE */
-.article-title {
-    font-size: 36px;
-    margin-bottom: 10px;
+    margin: auto;
+    font-size: 34px;
 }
 
 /* META */
-.article-meta {
-    color: #666;
+.meta {
+    margin-top: 10px;
+    opacity: 0.8;
     font-size: 14px;
-    margin-bottom: 30px;
 }
 
 /* IMAGE */
-.article-img img {
+.article-image {
+    max-width: 900px;
+    margin: -40px auto 30px;
+}
+
+.article-image img {
     width: 100%;
-    margin-bottom: 10px;
+    border-radius: 5px;
 }
 
-.caption {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 30px;
+/* ARTICLE */
+.article-body {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-/* TEXT */
-.article-content p {
-    line-height: 1.7;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
-/* INTERTITRES */
-.article-content h2 {
-    margin-top: 40px;
-    font-size: 24px;
+/* TITRES */
+.article-body h2 {
+    margin-top: 30px;
 }
 
 /* CITATION */
-.quote {
+blockquote {
     border-left: 4px solid #0b3d2e;
     padding-left: 15px;
-    margin: 30px 0;
     font-style: italic;
-    color: #444;
+    color: #555;
 }
 
-/* RELATED */
-.related {
-    margin-top: 50px;
+/* PARTAGE */
+.share {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
 }
 
-.related h3 {
-    margin-bottom: 15px;
-}
-
-.related a {
-    display: block;
-    margin-bottom: 8px;
-    color: #0b3d2e;
-    text-decoration: none;
+.share i {
+    font-size: 20px;
+    cursor: pointer;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -260px;
+        display: none;
     }
 
     .content {
         margin-left: 0;
     }
 
-    .article-container {
-        padding: 20px;
+    .article-body {
+        padding: 25px;
     }
 
-    .article-title {
+    .article-header h1 {
         font-size: 26px;
     }
 }
@@ -150,73 +140,50 @@ body {
 <div class="sidebar">
     <a href="index.html" class="logo">LP</a>
 </div>
-     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
-    </div>
-</div>
 
 <!-- CONTENT -->
 <div class="content">
 
-<div class="header">
-    <h1>La Perspective</h1>
+<!-- HEADER -->
+<div class="article-header">
+    <h1>Inflation : pourquoi les prix continuent d’augmenter</h1>
+    <div class="meta">Publié le 10 mai 2026 • Par La Rédaction</div>
 </div>
 
-<div class="article-container">
+<!-- IMAGE -->
+<div class="article-image">
+    <img src="https://picsum.photos/900/400">
+</div>
 
-    <h1 class="article-title">Titre de l’article principal</h1>
+<!-- ARTICLE -->
+<div class="article-body">
 
-    <div class="article-meta">
-        Par Auteur • 15 mai 2026 • 5 min de lecture
-    </div>
+<p>
+L’inflation reste au cœur des préoccupations économiques en France. Depuis plusieurs mois, les prix augmentent dans de nombreux secteurs, affectant directement le pouvoir d’achat des ménages.
+</p>
 
-    <div class="article-img">
-        <img src="https://picsum.photos/800/400">
-        <div class="caption">Description de l’image</div>
-    </div>
+<h2>Une hausse généralisée</h2>
 
-    <div class="article-content">
+<p>
+Alimentation, énergie, logement : aucun secteur n’est épargné. Cette situation s’explique notamment par les tensions internationales et les coûts de production.
+</p>
 
-        <p>
-            Introduction de l’article. Accroche forte qui donne envie de lire la suite.
-        </p>
+<blockquote>
+"La situation actuelle est le résultat d’un enchaînement de crises économiques", explique un analyste.
+</blockquote>
 
-        <h2>Une première partie importante</h2>
+<h2>Quel impact pour les Français ?</h2>
 
-        <p>
-            Développement de l’information avec des phrases claires et structurées.
-        </p>
+<p>
+Les ménages doivent adapter leurs habitudes de consommation, tandis que les entreprises tentent de maintenir leurs marges.
+</p>
 
-        <div class="quote">
-            “Une citation importante qui donne du poids à l’article.”
-        </div>
-
-        <p>
-            Suite de l’analyse ou du récit.
-        </p>
-
-        <h2>Analyse et contexte</h2>
-
-        <p>
-            Explication plus approfondie du sujet.
-        </p>
-
-    </div>
-
-    <div class="related">
-        <h3>À lire aussi</h3>
-        <a href="#">Article lié 1</a>
-        <a href="#">Article lié 2</a>
-    </div>
+<!-- PARTAGE -->
+<div class="share">
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-linkedin"></i>
+</div>
 
 </div>
 
