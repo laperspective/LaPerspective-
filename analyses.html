@@ -3,17 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Analyses - La Perspective</title>
+<title>La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* BASE */
+/* RESET */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
+    color: #111;
 }
 
 /* SIDEBAR */
@@ -29,89 +32,120 @@ body {
     z-index: 2000;
 }
 
+/* LOGO */
 .logo {
     border: 2px solid white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     margin-bottom: 30px;
     text-decoration: none;
     color: white;
     display: block;
+    font-weight: bold;
 }
 
 /* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 15px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
+    font-size: 14px;
+}
+
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #e1306c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 240px;
+    margin-left: 200px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 30px;
+    padding: 35px;
     text-align: center;
 }
 
 /* MAIN */
 .main {
-    max-width: 900px;
-    margin: auto;
-    padding: 30px 20px;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
-/* ANALYSE PRINCIPALE */
-.main-analysis {
+/* HERO */
+.hero {
     background: white;
     padding: 30px;
-    margin-bottom: 30px;
     border-left: 5px solid #0b3d2e;
+    margin-bottom: 30px;
 }
 
-.main-analysis h2 {
-    margin-top: 0;
-}
-
-/* POINTS CLÉS */
-.key-points {
-    background: #eaf3f0;
-    padding: 20px;
-    margin: 30px 0;
-}
-
-.key-points li {
-    margin-bottom: 10px;
-}
-
-/* BLOCS ANALYSE */
-.analysis-grid {
+/* GRID ARTICLES */
+.grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-.analysis-box {
+/* CARD */
+.card {
     background: white;
     padding: 20px;
+    text-decoration: none;
+    color: black;
     border: 1px solid #eee;
+    transition: 0.3s;
 }
 
-/* MOBILE */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* MOBILE MENU */
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    font-size: 26px;
+    color: white;
+    z-index: 3000;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -260px;
+        left: -220px;
         transition: 0.3s;
     }
 
@@ -123,7 +157,11 @@ body {
         margin-left: 0;
     }
 
-    .analysis-grid {
+    .menu-btn {
+        display: block;
+    }
+
+    .grid {
         grid-template-columns: 1fr;
     }
 }
@@ -133,8 +171,12 @@ body {
 
 <body>
 
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="toggleMenu()"></div>
+
 <!-- SIDEBAR -->
 <div class="sidebar">
+
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
@@ -149,62 +191,64 @@ body {
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
+
+    <a href="https://instagram.com/TONCOMPTE" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
     <div class="header">
-        <h1>Analyses</h1>
-        <p>Comprendre en profondeur</p>
+        <h1>TITRE DE LA RUBRIQUE</h1>
+        <p>Sous-titre / accroche journalistique</p>
     </div>
 
     <div class="main">
 
-        <!-- ANALYSE PRINCIPALE -->
-        <div class="main-analysis">
-            <h2>Pourquoi l’inflation reste élevée en 2026</h2>
-            <p>Analyse détaillée des causes économiques et politiques.</p>
+        <!-- ARTICLE PRINCIPAL -->
+        <div class="hero">
+            <h2>Grand titre principal</h2>
+            <p>Résumé de l’article principal.</p>
         </div>
 
-        <!-- POINTS CLÉS -->
-        <div class="key-points">
-            <h3>À retenir</h3>
-            <ul>
-                <li>Inflation liée à l’énergie</li>
-                <li>Hausse des taux d’intérêt</li>
-                <li>Impact sur le pouvoir d’achat</li>
-            </ul>
-        </div>
+        <!-- ARTICLES -->
+        <div class="grid">
 
-        <!-- ANALYSES SECONDAIRES -->
-        <div class="analysis-grid">
+            <a href="#" class="card">
+                <h3>Article 1</h3>
+                <p>Résumé court</p>
+            </a>
 
-            <div class="analysis-box">
-                <h3>Impact sur les ménages</h3>
-                <p>Analyse du pouvoir d’achat.</p>
-            </div>
+            <a href="#" class="card">
+                <h3>Article 2</h3>
+                <p>Résumé court</p>
+            </a>
 
-            <div class="analysis-box">
-                <h3>Conséquences politiques</h3>
-                <p>Réactions des gouvernements.</p>
-            </div>
+            <a href="#" class="card">
+                <h3>Article 3</h3>
+                <p>Résumé court</p>
+            </a>
 
-            <div class="analysis-box">
-                <h3>Perspective internationale</h3>
-                <p>Comparaison avec d’autres pays.</p>
-            </div>
-
-            <div class="analysis-box">
-                <h3>Prévisions</h3>
-                <p>Ce qui pourrait arriver.</p>
-            </div>
+            <a href="#" class="card">
+                <h3>Article 4</h3>
+                <p>Résumé court</p>
+            </a>
 
         </div>
 
     </div>
 
 </div>
+
+<script>
+function toggleMenu() {
+    document.querySelector(".sidebar").classList.toggle("active");
+    document.querySelector(".overlay").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
