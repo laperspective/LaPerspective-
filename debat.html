@@ -3,74 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Débat - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* RESET */
-* { box-sizing: border-box; }
+/* BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
-    color: #111;
 }
 
 /* SIDEBAR */
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
+    width: 190px;
     height: 100vh;
     background: #0b3d2e;
     color: white;
     padding: 20px;
-    z-index: 2000;
 }
 
-/* LOGO */
 .logo {
-    border: 2px solid white;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    text-decoration: none;
-    color: white;
     display: block;
-    font-weight: bold;
+    border: 2px solid white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    color: white;
+    text-decoration: none;
 }
 
 /* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
-    font-size: 14px;
-}
-
-/* INSTAGRAM */
-.insta {
-    margin-top: 30px;
-    display: block;
-    padding: 10px;
-    background: #e1306c;
-    color: white;
-    text-align: center;
-    text-decoration: none;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 200px;
+    margin-left: 190px;
 }
 
 /* HEADER */
@@ -81,87 +62,94 @@ body {
     text-align: center;
 }
 
-/* MAIN */
-.main {
-    max-width: 1000px;
+/* QUESTION */
+.question {
+    max-width: 800px;
     margin: 30px auto;
-    padding: 20px;
-}
-
-/* HERO */
-.hero {
     background: white;
-    padding: 30px;
-    border-left: 5px solid #0b3d2e;
-    margin-bottom: 30px;
+    padding: 25px;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
 }
 
-/* GRID ARTICLES */
-.grid {
+/* POUR / CONTRE */
+.debate {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 }
 
-/* CARD */
-.card {
+.block {
     background: white;
     padding: 20px;
-    text-decoration: none;
-    color: black;
-    border: 1px solid #eee;
-    transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.pour { border-top: 5px solid green; }
+.contre { border-top: 5px solid red; }
+
+/* GRAPH */
+.graph {
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
 }
 
-/* MOBILE MENU */
-.menu-btn {
-    display: none;
-    position: fixed;
-    top: 20px;
-    left: 15px;
-    font-size: 26px;
+.bar {
+    height: 30px;
+    margin: 10px 0;
     color: white;
-    z-index: 3000;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.pour-bar { background: green; width: 60%; }
+.contre-bar { background: red; width: 40%; }
+
+/* FORM */
+.form {
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background: #0b3d2e;
+    color: white;
+    border: none;
     cursor: pointer;
 }
 
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: none;
-}
-
-.overlay.active {
-    display: block;
-}
-
-/* RESPONSIVE */
+/* MOBILE */
 @media (max-width: 768px) {
 
+    .content {
+        margin-left: 0;
+    }
+
     .sidebar {
-        left: -220px;
-        transition: 0.3s;
+        left: -210px;
     }
 
     .sidebar.active {
         left: 0;
     }
 
-    .content {
-        margin-left: 0;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .grid {
+    .debate {
         grid-template-columns: 1fr;
     }
 }
@@ -171,31 +159,22 @@ body {
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-
 <!-- SIDEBAR -->
 <div class="sidebar">
-
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+        <a href="actu.html">Actualité</a>
+        <a href="societe.html">Société</a>
+        <a href="international.html">International</a>
+        <a href="culture.html">Culture</a>
+        <a href="analyses.html">Analyses</a>
+        <a href="local.html">Local</a>
+        <a href="economie.html">Économie</a>
+        <a href="debat.html">Débat</a>
+        <a href="interviews.html">Interviews</a>
+        <a href="necrologie.html">Nécrologie</a>
     </div>
-
-    <a href="https://instagram.com/laperspective_journal" target="_blank" class="insta">
-        <i class="fab fa-instagram"></i> Instagram
-    </a>
-
 </div>
 
 <!-- CONTENT -->
@@ -206,67 +185,56 @@ body {
 </div>
 
 <div class="question">
-    Faut il limiter l'usage des reseaux sociaux chez les jeunes ?
+    Faut-il interdire le téléphone au lycée ?
 </div>
 
-<div class="debate-grid">
+<div class="debate">
 
     <div class="block pour">
         <h3>Arguments POUR</h3>
         <ul>
-            <li>Àvenir</li>
-            <li>À venir</li>
-            <li>À venir</li>
+            <li>Meilleure concentration</li>
+            <li>Moins de distractions</li>
+            <li>Favorise les échanges</li>
         </ul>
     </div>
 
     <div class="block contre">
         <h3>Arguments CONTRE</h3>
         <ul>
-            <li>À venir</li>
-            <li>À venir</li>
-            <li>À venir</li>
+            <li>Outil pédagogique</li>
+            <li>Communication utile</li>
+            <li>Responsabilisation</li>
         </ul>
     </div>
 
 </div>
 
 <div class="graph">
-    <h3>Résultat du débat(pas de resultat pour le moment)</h3>
-    <div class="bar pour-bar">0% POUR</div>
-    <div class="bar contre-bar">0% CONTRE</div>
+    <h3>Résultat</h3>
+    <div class="bar pour-bar">60% POUR</div>
+    <div class="bar contre-bar">40% CONTRE</div>
 </div>
 
 <div class="form">
-    <h3>Donne ton avis</h3>
+<form action="https://formspree.io/f/xqenrzaw" method="POST">
 
-    <form action="https://formspree.io/f/xqenrzaw" method="POST">
+    <input type="text" name="nom" placeholder="Ton prénom" required>
 
-        <input type="text" name="nom" placeholder="Ton prénom" required>
+    <select name="avis" required>
+        <option value="">Ton avis</option>
+        <option value="pour">Pour</option>
+        <option value="contre">Contre</option>
+    </select>
 
-        <select name="position" required>
-            <option value="">Ton avis</option>
-            <option value="pour">Pour</option>
-            <option value="contre">Contre</option>
-        </select>
+    <textarea name="message" placeholder="Ton opinion..." required></textarea>
 
-        <textarea name="message" placeholder="Ton opinion..." required></textarea>
+    <button type="submit">Envoyer</button>
 
-        <button type="submit">Envoyer</button>
-
-    </form>
+</form>
 </div>
 
 </div>
-
-</div>
-
-<script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-    document.querySelector(".overlay").classList.toggle("active");
-}
-</script>
 
 </body>
 </html>
