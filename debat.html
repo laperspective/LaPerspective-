@@ -157,20 +157,31 @@ body {
 }
 
 /* MOBILE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
 
     .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
+        left: -220px;
+        transition: 0.3s;
+    }
+
+    .sidebar.active {
+        left: 0;
     }
 
     .content {
         margin-left: 0;
     }
 
-    .debate-grid {
+    .menu-btn {
+        display: block;
+    }
+
+    .articles {
         grid-template-columns: 1fr;
+    }
+}
+
     }
 }
 
