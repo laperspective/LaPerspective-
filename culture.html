@@ -3,20 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>Culture - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
 /* RESET */
-* { box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
-    color: #111;
 }
 
 /* SIDEBAR */
@@ -24,31 +26,29 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 190px;
     height: 100vh;
     background: #0b3d2e;
     color: white;
     padding: 20px;
-    z-index: 2000;
 }
 
 /* LOGO */
 .logo {
-    border: 2px solid white;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    text-decoration: none;
-    color: white;
     display: block;
-    font-weight: bold;
+    border: 2px solid white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    color: white;
+    text-decoration: none;
 }
 
 /* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
 
 .menu a {
@@ -57,27 +57,16 @@ body {
     font-size: 14px;
 }
 
-/* INSTAGRAM */
-.insta {
-    margin-top: 30px;
-    display: block;
-    padding: 10px;
-    background: #e1306c;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-}
-
 /* CONTENT */
 .content {
-    margin-left: 200px;
+    margin-left: 190px;
 }
 
-/* HEADER */
+/* HEADER CULTURE */
 .header {
-    background: linear-gradient(135deg, #0b3d2e, #145c45);
+    background:#0b3d2e;
     color: white;
-    padding: 35px;
+    padding: 40px 20px;
     text-align: center;
 }
 
@@ -88,15 +77,15 @@ body {
     padding: 20px;
 }
 
-/* HERO */
+/* HERO CULTURE */
 .hero {
     background: white;
     padding: 30px;
-    border-left: 5px solid #0b3d2e;
+    border-left: 5px solid #6a2c70;
     margin-bottom: 30px;
 }
 
-/* GRID ARTICLES */
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -117,7 +106,18 @@ body {
     transform: translateY(-5px);
 }
 
-/* MOBILE MENU */
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #e1306c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* MOBILE */
 .menu-btn {
     display: none;
     position: fixed;
@@ -125,8 +125,6 @@ body {
     left: 15px;
     font-size: 26px;
     color: white;
-    z-index: 3000;
-    cursor: pointer;
 }
 
 .overlay {
@@ -141,11 +139,10 @@ body {
     display: block;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -220px;
+        left: -210px;
         transition: 0.3s;
     }
 
@@ -180,70 +177,64 @@ body {
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+        <a href="actu.html">Actualité</a>
+        <a href="societe.html">Société</a>
+        <a href="international.html">International</a>
+        <a href="culture.html">Culture</a>
+        <a href="analyses.html">Analyses</a>
+        <a href="local.html">Vie locale</a>
+        <a href="economie.html">Économie</a>
+        <a href="debat.html">Débat</a>
+        <a href="interviews.html">Interviews</a>
+        <a href="necrologie.html">Nécrologie</a>
     </div>
 
-    <a href="https://instagram.com/journal_laperspective" target="_blank" class="insta">
-        <i class="fab fa-instagram"></i> Instagram
-    </a>
+    <a href="#" class="insta">Instagram</a>
 
 </div>
-
 
 <!-- CONTENT -->
 <div class="content">
 
     <div class="header">
         <h1>Culture</h1>
-        <p>Arts, cinéma, musique et idées</p>
+        <p>Arts, cinéma, musique et société</p>
     </div>
 
-    <!-- HERO -->
-    <div class="culture-hero">
-        <img src="https://picsum.photos/900/400">
-        <div class="culture-hero-text">
-            <h2>Film événement de la semaine</h2>
-            <p>Analyse et critique du moment</p>
-        </div>
-    </div>
+    <div class="main">
 
-    <!-- ARTICLES -->
-    <div class="culture-grid">
-
-        <div class="culture-card">
-            <img src="https://picsum.photos/400/200">
-            <div class="culture-card-content">
-                <h3>Musique</h3>
-                <p>Les sorties à ne pas manquer</p>
-            </div>
+        <!-- ARTICLE PRINCIPAL -->
+        <div class="hero">
+            <h2>Streaming vs cinéma : la fin des salles obscures ?</h2>
+            <p>Analyse des nouvelles habitudes culturelles.</p>
         </div>
 
-        <div class="culture-card">
-            <img src="https://picsum.photos/401/200">
-            <div class="culture-card-content">
-                <h3>Littérature</h3>
-                <p>Les livres du moment</p>
-            </div>
+        <!-- ARTICLES -->
+        <div class="grid">
+
+            <a href="#" class="card">
+                <h3>Pourquoi les jeunes désertent le cinéma</h3>
+                <p>Une transformation des pratiques culturelles.</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Musique : l’explosion du streaming</h3>
+                <p>Une révolution dans l’industrie musicale.</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Festival : un été sous tension</h3>
+                <p>Entre succès et défis logistiques.</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Séries : un âge d’or en question</h3>
+                <p>La production explose, la qualité suit-elle ?</p>
+            </a>
+
         </div>
 
     </div>
-
-    <!-- CRITIQUE -->
-    <div class="critique">
-        <h2>Critique</h2>
-        <p>Analyse approfondie d’une œuvre récente. Style rédactionnel plus long et argumenté.</p>
-    </div>
-
-</div>
 
 </div>
 
