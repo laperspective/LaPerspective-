@@ -3,166 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La Perspective</title>
+<title>International - La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* RESET */
-* { box-sizing: border-box; }
+/* BASE */
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    margin: 0;
     font-family: Georgia, serif;
-    background: #f5f5f5;
-    color: #111;
+    background:#f5f5f5;
+    color:#111;
 }
 
 /* SIDEBAR */
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    background: #0b3d2e;
-    color: white;
-    padding: 20px;
-    z-index: 2000;
+    top:0;
+    left:0;
+    width:190px;
+    height:100vh;
+    background:#0b3d2e;
+    color:white;
+    padding:20px;
 }
 
-/* LOGO */
 .logo {
-    border: 2px solid white;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    text-decoration: none;
-    color: white;
-    display: block;
-    font-weight: bold;
+    display:block;
+    border:2px solid white;
+    padding:10px;
+    text-align:center;
+    margin-bottom:30px;
+    color:white;
+    text-decoration:none;
 }
 
 /* MENU */
 .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
 }
 
 .menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-/* INSTAGRAM */
-.insta {
-    margin-top: 30px;
-    display: block;
-    padding: 10px;
-    background: #e1306c;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+    color:white;
+    text-decoration:none;
+    font-size:14px;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 200px;
+    margin-left:190px;
 }
 
 /* HEADER */
 .header {
-    background: linear-gradient(135deg, #0b3d2e, #145c45);
-    color: white;
-    padding: 35px;
-    text-align: center;
+    background:linear-gradient(135deg,#0b3d2e,#145c45);
+    color:white;
+    padding:35px;
+    text-align:center;
 }
 
 /* MAIN */
 .main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
+    max-width:1000px;
+    margin:30px auto;
+    padding:20px;
 }
 
 /* HERO */
 .hero {
-    background: white;
-    padding: 30px;
-    border-left: 5px solid #0b3d2e;
-    margin-bottom: 30px;
+    background:white;
+    padding:30px;
+    border-left:5px solid #0b3d2e;
+    margin-bottom:30px;
 }
 
-/* GRID ARTICLES */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+/* CONTINENTS */
+.continents {
+    display:flex;
+    flex-direction:column;
+    gap:25px;
 }
 
-/* CARD */
-.card {
-    background: white;
-    padding: 20px;
-    text-decoration: none;
-    color: black;
-    border: 1px solid #eee;
-    transition: 0.3s;
+/* CARD CONTINENT */
+.continent {
+    background:white;
+    padding:20px;
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:20px;
+    transition:0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.continent:hover {
+    transform:translateY(-5px);
 }
 
-/* MOBILE MENU */
-.menu-btn {
-    display: none;
-    position: fixed;
-    top: 20px;
-    left: 15px;
-    font-size: 26px;
-    color: white;
-    z-index: 3000;
-    cursor: pointer;
+/* IMAGE */
+.continent img {
+    width:100%;
+    height:140px;
+    object-fit:cover;
 }
 
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    display: none;
+/* TEXT */
+.continent h2 {
+    margin-bottom:10px;
 }
 
-.overlay.active {
-    display: block;
+/* LIST */
+.continent ul {
+    padding-left:18px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* MOBILE */
+@media (max-width:768px) {
 
     .sidebar {
-        left: -220px;
-        transition: 0.3s;
+        left:-210px;
+        transition:0.3s;
     }
 
     .sidebar.active {
-        left: 0;
+        left:0;
     }
 
     .content {
-        margin-left: 0;
+        margin-left:0;
     }
 
-    .menu-btn {
-        display: block;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
+    .continent {
+        grid-template-columns:1fr;
     }
 }
 
@@ -171,106 +145,102 @@ body {
 
 <body>
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-<div class="overlay" onclick="toggleMenu()"></div>
-
 <!-- SIDEBAR -->
 <div class="sidebar">
 
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
-        <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
-        <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
-        <a href="international.html"><i class="fas fa-globe"></i> International</a>
-        <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
-        <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
-        <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
-        <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
-        <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
-        <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
+        <a href="actu.html">Actualité</a>
+        <a href="societe.html">Société</a>
+        <a href="international.html">International</a>
+        <a href="culture.html">Culture</a>
+        <a href="analyses.html">Analyses</a>
+        <a href="local.html">Vie locale</a>
+        <a href="economie.html">Économie</a>
+        <a href="debat.html">Débat</a>
+        <a href="interviews.html">Interviews</a>
+        <a href="necrologie.html">Nécrologie</a>
     </div>
-
-    <a href="https://instagram.com/TONCOMPTE" target="_blank" class="insta">
-        <i class="fab fa-instagram"></i> Instagram
-    </a>
 
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
-<div class="header">
-    <h1>International</h1>
-    <p>Comprendre les dynamiques mondiales</p>
-</div>
-
-<div class="continents">
-
-<!-- EUROPE -->
-<div class="continent">
-    <img src="https://picsum.photos/400/200?random=1">
-    <div>
-        <h2>Europe</h2>
-        <p>Actualité politique, économique et sociale du continent.</p>
-        <ul>
-            <li>Crise politique en Europe de l’Est</li>
-            <li>Réformes économiques en France</li>
-        </ul>
+    <div class="header">
+        <h1>International</h1>
+        <p>Comprendre les dynamiques mondiales</p>
     </div>
-</div>
 
-<!-- AMÉRIQUES -->
-<div class="continent">
-    <img src="https://picsum.photos/400/200?random=2">
-    <div>
-        <h2>Amériques</h2>
-        <p>États-Unis, Amérique latine et enjeux géopolitiques.</p>
-        <ul>
-            <li>Élections aux États-Unis</li>
-            <li>Situation économique au Brésil</li>
-        </ul>
+    <div class="main">
+
+        <!-- HERO -->
+        <div class="hero">
+            <h2>Monde : les nouvelles tensions internationales en 2026</h2>
+            <p>Analyse des rapports de force entre grandes puissances.</p>
+        </div>
+
+        <!-- CONTINENTS -->
+        <div class="continents">
+
+            <!-- EUROPE -->
+            <div class="continent">
+                <img src="https://picsum.photos/300/200?random=1">
+                <div>
+                    <h2>Europe</h2>
+                    <ul>
+                        <li>Crise politique en Europe de l’Est</li>
+                        <li>Réformes économiques en France</li>
+                        <li>Tensions au sein de l’Union européenne</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- AMÉRIQUES -->
+            <div class="continent">
+                <img src="https://picsum.photos/300/200?random=2">
+                <div>
+                    <h2>Amériques</h2>
+                    <ul>
+                        <li>Élections aux États-Unis</li>
+                        <li>Situation économique au Brésil</li>
+                        <li>Relations Amérique latine / USA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ASIE -->
+            <div class="continent">
+                <img src="https://picsum.photos/300/200?random=3">
+                <div>
+                    <h2>Asie</h2>
+                    <ul>
+                        <li>Tensions Chine-Taïwan</li>
+                        <li>Croissance en Inde</li>
+                        <li>Stratégie militaire en mer de Chine</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- AFRIQUE -->
+            <div class="continent">
+                <img src="https://picsum.photos/300/200?random=4">
+                <div>
+                    <h2>Afrique</h2>
+                    <ul>
+                        <li>Transition énergétique</li>
+                        <li>Développement économique</li>
+                        <li>Enjeux politiques régionaux</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-</div>
-
-<!-- ASIE -->
-<div class="continent">
-    <img src="https://picsum.photos/400/200?random=3">
-    <div>
-        <h2>Asie</h2>
-        <p>Puissances émergentes et tensions régionales.</p>
-        <ul>
-            <li>Relations Chine-Taïwan</li>
-            <li>Développement en Inde</li>
-        </ul>
-    </div>
-</div>
-
-<!-- AFRIQUE -->
-<div class="continent">
-    <img src="https://picsum.photos/400/200?random=4">
-    <div>
-        <h2>Afrique</h2>
-        <p>Économie, politique et développement.</p>
-        <ul>
-            <li>Transition énergétique</li>
-            <li>Conflits régionaux</li>
-        </ul>
-    </div>
-</div>
-
 
 </div>
-
-</div>
-
-<script>
-function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
-    document.querySelector(".overlay").classList.toggle("active");
-}
-</script>
 
 </body>
 </html>
