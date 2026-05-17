@@ -10,10 +10,13 @@
 <style>
 
 /* RESET */
-* { box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
     color: #111;
@@ -24,7 +27,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 190px;
     height: 100vh;
     background: #0b3d2e;
     color: white;
@@ -34,13 +37,13 @@ body {
 
 /* LOGO */
 .logo {
-    border: 2px solid white;
-    padding: 10px;
-    text-align: center;
-    margin-bottom: 30px;
-    text-decoration: none;
-    color: white;
     display: block;
+    border: 2px solid white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    color: white;
+    text-decoration: none;
     font-weight: bold;
 }
 
@@ -48,13 +51,21 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
     font-size: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    opacity: 0.9;
+}
+
+.menu a:hover {
+    opacity: 1;
 }
 
 /* INSTAGRAM */
@@ -66,18 +77,19 @@ body {
     color: white;
     text-align: center;
     text-decoration: none;
+    border-radius: 4px;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 200px;
+    margin-left: 190px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 35px;
+    padding: 35px 20px;
     text-align: center;
 }
 
@@ -96,7 +108,7 @@ body {
     margin-bottom: 30px;
 }
 
-/* GRID ARTICLES */
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -110,7 +122,7 @@ body {
     text-decoration: none;
     color: black;
     border: 1px solid #eee;
-    transition: 0.3s;
+    transition: 0.25s;
 }
 
 .card:hover {
@@ -145,7 +157,7 @@ body {
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -220px;
+        left: -210px;
         transition: 0.3s;
     }
 
@@ -164,6 +176,7 @@ body {
     .grid {
         grid-template-columns: 1fr;
     }
+
 }
 
 </style>
@@ -192,22 +205,21 @@ body {
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
 
-    <a href="https://instagram.com/journal_laperspective" target="_blank" class="insta">
+    <a href="https://instagram.com/laperspective_journal" target="_blank" class="insta">
         <i class="fab fa-instagram"></i> Instagram
     </a>
 
 </div>
 
-
 <!-- CONTENT -->
 <div class="content">
 
     <div class="header">
-        <h1>Actualité</h1>
-        <p>Les événements majeurs en temps réel</p>
+        <h1> Actualité</h1></h1>
+        <p>Les Évènements majeurs en temps réel</p>
     </div>
 
-    <!-- FLASH -->
+        <!-- FLASH -->
     <div class="flash">
          FLASH : Information urgente en cours...
     </div>
@@ -256,7 +268,8 @@ body {
 
     </div>
 
-</div>
+
+    </div>
 
 </div>
 
