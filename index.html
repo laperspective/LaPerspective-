@@ -10,16 +10,12 @@
 <style>
 
 /* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
+    margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
-    color: #111;
 }
 
 /* SIDEBAR */
@@ -27,24 +23,22 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 190px;
+    width: 200px;
     height: 100vh;
     background: #0b3d2e;
     color: white;
     padding: 20px;
-    z-index: 2000;
 }
 
 /* LOGO */
 .logo {
-    display: block;
     border: 2px solid white;
-    text-align: center;
     padding: 10px;
-    margin-bottom: 30px;
-    color: white;
+    text-align: center;
+    margin-bottom: 25px;
     text-decoration: none;
-    font-weight: bold;
+    color: white;
+    display: block;
 }
 
 /* MENU */
@@ -60,12 +54,6 @@ body {
     font-size: 14px;
     display: flex;
     gap: 10px;
-    align-items: center;
-    opacity: 0.9;
-}
-
-.menu a:hover {
-    opacity: 1;
 }
 
 /* INSTAGRAM */
@@ -73,59 +61,55 @@ body {
     margin-top: 30px;
     display: block;
     padding: 10px;
-    background: #e1306c;
+    background: #0b3d2e;
     color: white;
     text-align: center;
     text-decoration: none;
-    border-radius: 4px;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 190px;
+    margin-left: 200px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 35px 20px;
+    padding: 40px;
     text-align: center;
-}
-
-/* MAIN */
-.main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 20px;
 }
 
 /* HERO */
 .hero {
+    max-width: 900px;
+    margin: 30px auto;
     background: white;
     padding: 30px;
     border-left: 5px solid #0b3d2e;
-    margin-bottom: 30px;
 }
 
-/* GRID */
-.grid {
+/* ARTICLES GRID */
+.articles {
+    max-width: 900px;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    padding: 20px;
 }
 
 /* CARD */
-.card {
+.article {
     background: white;
     padding: 20px;
     text-decoration: none;
     color: black;
+    transition: 0.3s;
     border: 1px solid #eee;
-    transition: 0.25s;
 }
 
-.card:hover {
+.article:hover {
     transform: translateY(-5px);
 }
 
@@ -138,7 +122,6 @@ body {
     font-size: 26px;
     color: white;
     z-index: 3000;
-    cursor: pointer;
 }
 
 .overlay {
@@ -157,7 +140,7 @@ body {
 @media (max-width: 768px) {
 
     .sidebar {
-        left: -210px;
+        left: -220px;
         transition: 0.3s;
     }
 
@@ -173,10 +156,9 @@ body {
         display: block;
     }
 
-    .grid {
+    .articles {
         grid-template-columns: 1fr;
     }
-
 }
 
 </style>
@@ -198,7 +180,7 @@ body {
         <a href="international.html"><i class="fas fa-globe"></i> International</a>
         <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
         <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
+        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Local</a>
         <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
         <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
@@ -219,36 +201,28 @@ body {
         <p>Comprendre le monde</p>
     </div>
 
-    <div class="main">
+    <div class="hero">
+        <h2>Téléphone au lycée : faut-il vraiment l’interdire ?</h2>
+        <p>Analyse d’un débat qui divise élèves, parents et enseignants.</p>
+    </div>
 
-        <div class="hero">
-            <h2>Article principal</h2>
-            <p>Résumé de ton article principal.</p>
-        </div>
+    <div class="articles">
 
-        <div class="grid">
+        <a href="article1.html" class="article">
+            <h3>Inflation : pourquoi les prix augmentent</h3>
+        </a>
 
-            <a href="article1.html" class="card">
-                <h3>Article 1</h3>
-                <p>Résumé court</p>
-            </a>
+        <a href="article2.html" class="article">
+            <h3>Crise internationale : tensions en hausse</h3>
+        </a>
 
-            <a href="article2.html" class="card">
-                <h3>Article 2</h3>
-                <p>Résumé court</p>
-            </a>
+        <a href="article3.html" class="article">
+            <h3>Culture : les jeunes désertent le cinéma</h3>
+        </a>
 
-            <a href="article3.html" class="card">
-                <h3>Article 3</h3>
-                <p>Résumé court</p>
-            </a>
-
-            <a href="article4.html" class="card">
-                <h3>Article 4</h3>
-                <p>Résumé court</p>
-            </a>
-
-        </div>
+        <a href="article4.html" class="article">
+            <h3>Réseaux sociaux : influence ou manipulation ?</h3>
+        </a>
 
     </div>
 
