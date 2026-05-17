@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interviews - La Perspective</title>
+<title>La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* BASE */
+/* RESET */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
+    color: #111;
 }
 
-/* SIDEBAR IDENTIQUE */
+/* SIDEBAR */
 .sidebar {
     position: fixed;
     top: 0;
@@ -29,98 +32,137 @@ body {
     z-index: 2000;
 }
 
+/* LOGO */
 .logo {
     border: 2px solid white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     margin-bottom: 30px;
-    color: white;
     text-decoration: none;
+    color: white;
     display: block;
+    font-weight: bold;
 }
 
+/* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 15px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
+    font-size: 14px;
+}
+
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #e1306c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
 }
 
 /* CONTENT */
 .content {
-    margin-left: 240px;
+    margin-left: 200px;
 }
 
 /* HEADER */
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 30px;
+    padding: 35px;
     text-align: center;
 }
 
-/* INTERVIEW */
-.interview {
-    max-width: 800px;
-    margin: 40px auto;
+/* MAIN */
+.main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* HERO */
+.hero {
     background: white;
     padding: 30px;
+    border-left: 5px solid #0b3d2e;
+    margin-bottom: 30px;
 }
 
-/* TITRE */
-.interview h1 {
-    margin-top: 0;
+/* GRID ARTICLES */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
 
-/* META */
-.meta {
-    color: gray;
-    margin-bottom: 20px;
+/* CARD */
+.card {
+    background: white;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #eee;
+    transition: 0.3s;
 }
 
-/* IMAGE */
-.photo img {
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* MOBILE MENU */
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    font-size: 26px;
+    color: white;
+    z-index: 3000;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
     width: 100%;
-    margin: 20px 0;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
 }
 
-/* QUESTIONS */
-.question {
-    font-weight: bold;
-    margin-top: 30px;
-    color: #0b3d2e;
+.overlay.active {
+    display: block;
 }
 
-/* RÉPONSES */
-.reponse {
-    margin-top: 10px;
-    line-height: 1.7;
-}
-
-/* CITATION */
-.quote {
-    margin: 30px 0;
-    padding-left: 15px;
-    border-left: 4px solid #0b3d2e;
-    font-style: italic;
-}
-
-/* MOBILE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+
     .sidebar {
-        display: none;
+        left: -220px;
+        transition: 0.3s;
+    }
+
+    .sidebar.active {
+        left: 0;
     }
 
     .content {
         margin-left: 0;
     }
 
-    .interview {
-        padding: 20px;
+    .menu-btn {
+        display: block;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -129,11 +171,15 @@ body {
 
 <body>
 
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<div class="overlay" onclick="toggleMenu()"></div>
+
 <!-- SIDEBAR -->
 <div class="sidebar">
+
     <a href="index.html" class="logo">LP</a>
 
-     <div class="menu">
+    <div class="menu">
         <a href="actu.html"><i class="fas fa-newspaper"></i> Actualité</a>
         <a href="societe.html"><i class="fas fa-comments"></i> Société</a>
         <a href="international.html"><i class="fas fa-globe"></i> International</a>
@@ -145,47 +191,64 @@ body {
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
+
+    <a href="https://instagram.com/TONCOMPTE" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
     <div class="header">
-        <h1>Interview</h1>
-        <p>Rencontre avec une personnalité</p>
+        <h1>TITRE DE LA RUBRIQUE</h1>
+        <p>Sous-titre / accroche journalistique</p>
     </div>
 
-    <div class="interview">
+    <div class="main">
 
-        <h1>Nom de la personne interviewée</h1>
-        <div class="meta">Par Ton Nom — 2026</div>
-
-        <div class="photo">
-            <img src="https://picsum.photos/800/400">
+        <!-- ARTICLE PRINCIPAL -->
+        <div class="hero">
+            <h2>Grand titre principal</h2>
+            <p>Résumé de l’article principal.</p>
         </div>
 
-        <div class="quote">
-            “Phrase marquante de l’interview.”
-        </div>
+        <!-- ARTICLES -->
+        <div class="grid">
 
-        <div class="question">Pourquoi avez-vous lancé ce projet ?</div>
-        <div class="reponse">
-            Réponse développée avec du détail et du contexte.
-        </div>
+            <a href="#" class="card">
+                <h3>Article 1</h3>
+                <p>Résumé court</p>
+            </a>
 
-        <div class="question">Quels sont vos objectifs ?</div>
-        <div class="reponse">
-            Explication claire et structurée.
-        </div>
+            <a href="#" class="card">
+                <h3>Article 2</h3>
+                <p>Résumé court</p>
+            </a>
 
-        <div class="question">Un message pour les jeunes ?</div>
-        <div class="reponse">
-            Réponse inspirante.
+            <a href="#" class="card">
+                <h3>Article 3</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 4</h3>
+                <p>Résumé court</p>
+            </a>
+
         </div>
 
     </div>
 
 </div>
+
+<script>
+function toggleMenu() {
+    document.querySelector(".sidebar").classList.toggle("active");
+    document.querySelector(".overlay").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
