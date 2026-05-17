@@ -3,24 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Économie - La Perspective</title>
+<title>La Perspective</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
-/* RESET GLOBAL */
-* {
-    box-sizing: border-box;
-}
+/* RESET */
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
     font-family: Georgia, serif;
     background: #f5f5f5;
+    color: #111;
 }
 
-/* SIDEBAR PROPRE */
+/* SIDEBAR */
 .sidebar {
     position: fixed;
     top: 0;
@@ -38,28 +37,38 @@ body {
     border: 2px solid white;
     padding: 10px;
     text-align: center;
-    margin-bottom: 25px;
-    color: white;
+    margin-bottom: 30px;
     text-decoration: none;
+    color: white;
     display: block;
+    font-weight: bold;
 }
 
 /* MENU */
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 15px;
 }
 
 .menu a {
     color: white;
     text-decoration: none;
-    display: flex;
-    gap: 10px;
     font-size: 14px;
 }
 
-/* CONTENU */
+/* INSTAGRAM */
+.insta {
+    margin-top: 30px;
+    display: block;
+    padding: 10px;
+    background: #e1306c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* CONTENT */
 .content {
     margin-left: 200px;
 }
@@ -68,61 +77,47 @@ body {
 .header {
     background: linear-gradient(135deg, #0b3d2e, #145c45);
     color: white;
-    padding: 30px;
+    padding: 35px;
     text-align: center;
+}
+
+/* MAIN */
+.main {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
 /* HERO */
-.hero-eco {
+.hero {
     background: white;
-    margin: 30px auto;
-    max-width: 900px;
     padding: 30px;
     border-left: 5px solid #0b3d2e;
+    margin-bottom: 30px;
 }
 
-/* BOURSE */
-.bourse {
-    max-width: 900px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 20px;
-}
-
-.indice {
-    background: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.up { color: green; }
-.down { color: red; }
-
-/* ARTICLES */
-.articles {
-    max-width: 900px;
-    margin: auto;
+/* GRID ARTICLES */
+.grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 20px;
 }
 
-.article {
+/* CARD */
+.card {
     background: white;
     padding: 20px;
     text-decoration: none;
     color: black;
+    border: 1px solid #eee;
     transition: 0.3s;
 }
 
-.article:hover {
+.card:hover {
     transform: translateY(-5px);
 }
 
-/* MENU MOBILE */
+/* MOBILE MENU */
 .menu-btn {
     display: none;
     position: fixed;
@@ -140,7 +135,6 @@ body {
     height: 100%;
     background: rgba(0,0,0,0.4);
     display: none;
-    z-index: 1500;
 }
 
 .overlay.active {
@@ -167,11 +161,7 @@ body {
         display: block;
     }
 
-    .bourse {
-        grid-template-columns: 1fr;
-    }
-
-    .articles {
+    .grid {
         grid-template-columns: 1fr;
     }
 }
@@ -186,6 +176,7 @@ body {
 
 <!-- SIDEBAR -->
 <div class="sidebar">
+
     <a href="index.html" class="logo">LP</a>
 
     <div class="menu">
@@ -194,38 +185,60 @@ body {
         <a href="international.html"><i class="fas fa-globe"></i> International</a>
         <a href="culture.html"><i class="fas fa-masks-theater"></i> Culture</a>
         <a href="analyses.html"><i class="fas fa-chart-line"></i> Analyses</a>
-        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Local</a>
+        <a href="local.html"><i class="fas fa-map-marker-alt"></i> Vie locale</a>
         <a href="economie.html"><i class="fas fa-coins"></i> Économie</a>
         <a href="debat.html"><i class="fas fa-fire"></i> Débat</a>
         <a href="interviews.html"><i class="fas fa-microphone"></i> Interviews</a>
         <a href="necrologie.html"><i class="fas fa-cross"></i> Nécrologie</a>
     </div>
+
+    <a href="https://instagram.com/TONCOMPTE" target="_blank" class="insta">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
     <div class="header">
-        <h1>Économie</h1>
-        <p>Marchés, entreprises, analyse</p>
+        <h1>TITRE DE LA RUBRIQUE</h1>
+        <p>Sous-titre / accroche journalistique</p>
     </div>
 
-    <div class="hero-eco">
-        <h2>Inflation : une nouvelle hausse inquiétante</h2>
-        <p>Analyse des dernières données économiques.</p>
-    </div>
+    <div class="main">
 
-    <div class="bourse">
-        <div class="indice"><h3>CAC 40</h3><p class="up">+1.2%</p></div>
-        <div class="indice"><h3>Dow Jones</h3><p class="down">-0.5%</p></div>
-        <div class="indice"><h3>NASDAQ</h3><p class="up">+0.8%</p></div>
-    </div>
+        <!-- ARTICLE PRINCIPAL -->
+        <div class="hero">
+            <h2>Grand titre principal</h2>
+            <p>Résumé de l’article principal.</p>
+        </div>
 
-    <div class="articles">
-        <a href="#" class="article"><h3>Pouvoir d’achat</h3><p>Les Français face à la hausse.</p></a>
-        <a href="#" class="article"><h3>Entreprises</h3><p>Les grandes mutations.</p></a>
-        <a href="#" class="article"><h3>Startups</h3><p>Les innovations clés.</p></a>
-        <a href="#" class="article"><h3>Marchés</h3><p>Tendances boursières.</p></a>
+        <!-- ARTICLES -->
+        <div class="grid">
+
+            <a href="#" class="card">
+                <h3>Article 1</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 2</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 3</h3>
+                <p>Résumé court</p>
+            </a>
+
+            <a href="#" class="card">
+                <h3>Article 4</h3>
+                <p>Résumé court</p>
+            </a>
+
+        </div>
+
     </div>
 
 </div>
